@@ -1,20 +1,21 @@
-import Link from "next/link";
+import React from 'react';
 
-import NavItem from "./nav-item";
+import Link from 'next/link';
 
-import { navLink } from "./navbar-links.module.css";
+import { navLink } from './navbar-links.module.css';
+import NavItem from './nav-item';
 
 type NavLinkProps = {
     address: string,
     text: string,
 }
 
-export default function NavLink({ address, text }: NavLinkProps) {
-    return (
-        <NavItem>
-            <div className={navLink}>
-                <Link href={`../../${address}`}>{text}</Link>
-            </div>
-        </NavItem>
-    );
-}
+const NavLink: React.FunctionComponent<NavLinkProps> = ({ address, text }) => (
+  <NavItem>
+    <div className={navLink}>
+      <Link href={`../../${address}`}>{text}</Link>
+    </div>
+  </NavItem>
+);
+
+export default NavLink;

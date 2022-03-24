@@ -1,18 +1,18 @@
-import React from "react";
-import * as styles from "./banner.module.css";
+import React from 'react';
+import Image from 'next/image';
+import * as styles from './banner.module.css';
 
-import homeTopImage from "../../images/home-top.jpg";
-import Image from "next/image";
+type BannerProps = Record<string, never>;
 
-export default function Banner() {
-    return (
-        <div className={styles.container}>
-            <Image src={homeTopImage} className={styles.image} alt="Mountain Scenery"></Image>
-            <p className={styles.text}>
-                &quot;a quote&quot;
-                <br />
-                -from some guy
-            </p>
-        </div>
-    );
-}
+const Banner: React.FC<BannerProps> = () => (
+  <div className={styles.container}>
+    <Image src="/images/home-top.jpg" className={styles.image} alt="Mountain Scenery" />
+    <p className={styles.text}>
+      &quot;a quote&quot;
+      <br />
+      -from some guy
+    </p>
+  </div>
+);
+
+export default Banner;

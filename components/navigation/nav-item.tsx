@@ -1,11 +1,8 @@
-import * as styles from "./navbar-links.module.css";
+import React from 'react';
 
-type NavItemProps = {
-    children: any 
-}
+import * as styles from './navbar-links.module.css';
 
-export default function NavItem({ children }: NavItemProps) {
-    return (
-        <div className={styles.navItem}>{children}</div>
-    );
-}
+const NavItem: React.FunctionComponent<{}> = ({ children }) => (
+  <div className={styles.navItem}>{children}</div>);
+
+export default NavItem;

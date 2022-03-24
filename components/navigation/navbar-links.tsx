@@ -1,32 +1,24 @@
-import React from "react";
-import PropTypes from "prop-types";
-import NavDropdown from "./nav-dropdown";
-import NavLink from "./nav-link";
-import * as styles from "./header.module.css";
-import DropdownLink from "./dropdown-link";
+import React from 'react';
+import NavDropdown from './nav-dropdown';
+import NavLink from './nav-link';
+import * as styles from './header.module.css';
+import DropdownLink from './dropdown-link';
 
 type NavbarLinksProps = {
-    hidden: boolean
-}
-export default function NavbarLinks({ hidden }: NavbarLinksProps) {
-    const data = {}
-    return (
-        <nav className={hidden ? styles.navbarHidden : styles.navbar}>
-            <NavLink address="" text="Home" />
-            <NavLink address="about" text="About" />
-            <NavDropdown address="all-journals" text="Journals">
-                <DropdownLink address={`${data.allMarkdownRemark.edges[0].node.fields.slug}`} text="Latest Post" />
-                <DropdownLink address="../../all-journals" text="All Posts" />
-            </NavDropdown>
-            <NavLink address="contact" text="Contact" />
-        </nav>
-    );
+    hidden: boolean,
+    latestSlug: string,
 }
 
-NavbarLinks.propTypes = {
-    hidden: PropTypes.bool,
-};
+const NavbarLinks: React.FunctionComponent<NavbarLinksProps> = ({ hidden, latestSlug }) => (
+  <nav className={`${hidden ? styles.navbarHidden : styles.navbar} ${styles.nav}`}>
+    <NavLink address="" text="Home" />
+    <NavLink address="about" text="About" />
+    <NavDropdown address="all-journals" text="Journals">
+      <DropdownLink address={latestSlug} text="Latest Post" />
+      <DropdownLink address="../../all-journals" text="All Posts" />
+    </NavDropdown>
+    <NavLink address="contact" text="Contact" />
+  </nav>
+);
 
-NavbarLinks.defaultProps = {
-    hidden: false,
-};
+export default NavbarLinks;

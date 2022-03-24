@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { dropdownLink } from "./dropdown.module.css";
+import Link from 'next/link';
+import { dropdownLink } from './dropdown.module.css';
 
 type DropdownLinkProps = {
     address: string,
@@ -7,9 +7,9 @@ type DropdownLinkProps = {
 }
 
 export default function DropdownLink({ address, text }: DropdownLinkProps) {
-    return (
-        <div className={dropdownLink}>
-        <Link href={address} >{text}</Link>
-        </div>
-    );
+  return (
+    <div className={dropdownLink}>
+      <Link href={address}>{text}</Link>
+    </div>
+  );
 }
