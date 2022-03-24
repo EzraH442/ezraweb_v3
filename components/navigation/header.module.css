@@ -1,0 +1,67 @@
+.header {
+  background-color: #222629;
+  font-family: "Major Mono Display", monospace;
+}
+.nav {
+  display: inline-block;
+}
+.navbarHidden {
+  display: none;
+}
+.navbar {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.title {
+  font-size: 6vw;
+  color: #86c232;
+  font-weight: 600;
+  padding: 20px;
+  display: inline-block;
+}
+.navToggle {
+  display: block;
+  color: white;
+  font-size: 30px;
+  background-color: #222629;
+}
+.navToggleCollapsed {
+  margin: 20px;
+  float: right;
+}
+.navToggleOpen {
+  margin: auto;
+  padding: 20px 0;
+}
+@media all and (min-width: 540px) {
+  .title {
+    font-size: 32.4px;
+  }
+}
+@media all and (min-width: 960px) {
+  .header {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    height: 150px;
+    justify-content: space-around;
+  }
+  .navToggle,
+  .navToggleCollapsed,
+  .navToggleOpen {
+    display: none;
+  }
+  .header {
+    flex-flow: row wrap;
+  }
+  .navbar {
+    flex-flow: row wrap;
+  }
+  .navbarHidden {
+    display: flex;
+  }
+  .title {
+    flex-grow: 0.7;
+  }
+}

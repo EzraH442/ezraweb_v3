@@ -1,42 +1,37 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import React from "react";
 
-import Header from "../components/header"
-import Footer from "../components/footer"
-import Banner from "../components/homepage/banner"
+import SEO from "../componenents/seo";
+import Header from "../componenents/header";
+import Footer from "../componenents/footer";
+import Banner from "../componenents/homepage/banner";
 
-import ThreeColumns from "../components/homepage/triple-column";
-import PersonalInfo from "../components/homepage/personalinfo";
+import ThreeColumns from "../componenents/homepage/triple-column";
+import PersonalInfo from "../componenents/homepage/personalinfo";
 
 import left from "../images/column2.jpg";
 import right from "../images/right.jpg";
 import summit from "../images/summit.jpg";
 
-const Home: NextPage = () => {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Home</title>
-        <meta name="description" content="Ezra's Website Homepage" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Header/>
-      <Banner/>
-
+const HomePage = () => (
+    <div>
+        <SEO
+            title="Home"
+            description="Ezra's Website Homepage!"
+            pathname=""
+        />
+        <Header />
+        <Banner />
         <ThreeColumns
             pos={1}
             title="Backpacking"
             text="I like to go backpacking!"
             images={{
                 image1: {
-                    src: left,
+                    src: { left },
                     alt: "Backpacking across a large scree field",
                 },
                 image2: {
-                    src: right,
+                    src: { right },
                     alt: "Great views from the top of a mountain",
                 },
             }}
@@ -48,20 +43,18 @@ const Home: NextPage = () => {
             text="I also love climbing mountains!"
             images={{
                 image1: {
-                    src: summit,
+                    src: { summit },
                     alt: "Backpacking across a large scree field",
                 },
                 image2: {
-                    src: summit,
+                    src: { summit },
                     alt: "Great views from the top of a mountain",
                 },
             }}
         />
         <PersonalInfo />
         <Footer />
-      <Footer/>
     </div>
-  )
-}
+);
 
-export default Home
+export default HomePage;

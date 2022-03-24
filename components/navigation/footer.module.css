@@ -1,0 +1,9 @@
+.footer {
+  background-color: #222629;
+}
+.footer p {
+  color: white;
+  font: 200 14px "Raleway", sans-serif;
+  padding: 12px 0;
+  text-align: center;
+}

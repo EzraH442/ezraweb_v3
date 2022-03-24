@@ -1,0 +1,8 @@
+.body {
+  min-height: calc(100vh - 152px);
+}
+@media all and (min-width: 960px) {
+  .body {
+    min-height: calc(100vh - 230px);
+  }
+}

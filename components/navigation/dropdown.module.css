@@ -1,0 +1,25 @@
+.dropdownLink {
+  color: white;
+  text-decoration: none;
+  font: 200 16px Arial;
+  display: inline-block;
+  padding: 8px 18px;
+}
+.dropdownContainer {
+  display: block;
+  background-color: #222629;
+  padding: 20px;
+  text-align: center;
+}
+.dropdownClosed {
+  display: none;
+}
+@media all and (min-width: 960px) {
+  .dropdownContainer {
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    padding: 20px;
+    width: 120px;
+  }
+}

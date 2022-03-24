@@ -1,0 +1,23 @@
+.container {
+  padding: 30px;
+}
+.title {
+  margin: 0;
+  font: 300 28px "Raleway";
+}
+.postCount {
+  font-size: 18px;
+}
+.line {
+  align-self: stretch;
+  min-height: 1px;
+  background-color: black;
+  margin: 15px 0;
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+.link div {
+  margin: 20px 0;
+}

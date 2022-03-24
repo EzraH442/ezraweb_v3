@@ -1,0 +1,23 @@
+.navItem {
+  padding: 12px 20px;
+  font: 300 18px Arial;
+  background-color: #222629;
+  text-align: center;
+}
+
+.navLink {
+  text-decoration: none;
+  color: white;
+}
+
+.navDropdownIcon {
+  color: white;
+  display: inline;
+  margin: -5px 1px;
+}
+
+@media all and (min-width: 960px) {
+  .navDropdownIcon {
+    display: none;
+  }
+}
