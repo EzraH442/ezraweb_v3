@@ -4,26 +4,7 @@ import * as styles from './personalinfo.module.css';
 import { columns } from './triple-column.module.css';
 
 import PostPreview from './post-preview';
-import { getPostBySlug, getPostSlugs, PostData } from '../../lib/api';
-
-export async function getStaticProps() {
-  const postsSlugs = getPostSlugs();
-
-  const latestPosts = [];
-
-  for (let i = 0; i < 3; i++) {
-    latestPosts.push(getPostBySlug(
-      postsSlugs[i],
-      ['title', 'date', 'headline', 'slug', 'featuredImage'],
-    ));
-  }
-
-  return {
-    props: {
-      posts: latestPosts,
-    },
-  };
-}
+import { PostData } from '../../lib/api';
 
 const PersonalInfo: React.FunctionComponent<{posts: PostData[]}> = ({ posts }) => (
   <div className={styles.info}>

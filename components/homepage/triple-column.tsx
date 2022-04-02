@@ -14,7 +14,7 @@ function buildTextCol(title: string, text: string) {
 function buildImageCol(src: string, alt: string) {
   return (
     <div className={styles.column}>
-      <Image src={src} alt={alt} />
+      <Image src={src} alt={alt} layout="responsive" width={300} height={300} />
     </div>
   );
 }

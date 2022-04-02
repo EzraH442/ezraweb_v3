@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 
@@ -9,7 +10,31 @@ import Banner from '../components/homepage/banner';
 import ThreeColumns from '../components/homepage/triple-column';
 import PersonalInfo from '../components/homepage/personalinfo';
 
-const Home: NextPage = () => (
+import { getPostSlugs, getPostBySlug, PostData } from '../lib/api';
+
+export const getStaticProps: GetStaticProps = async () => {
+  const postsSlugs = getPostSlugs();
+  const latestPosts = [];
+
+  for (let i = 0; i < 3; i++) {
+    latestPosts.push(getPostBySlug(
+      postsSlugs[postsSlugs.length - 1 - i],
+      ['title', 'date', 'headline', 'slug', 'featuredImage'],
+    ));
+  }
+
+  return {
+    props: {
+      posts: latestPosts,
+    },
+  };
+};
+
+type HomepageProps = {
+  posts: PostData[];
+}
+
+const Home: NextPage<HomepageProps> = ({ posts }) => (
   <div className={styles.container}>
     <Head>
       <title>Home</title>
@@ -17,7 +42,7 @@ const Home: NextPage = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <Header />
+    <Header latestSlug={posts[0].slug!} />
     <Banner />
 
     <ThreeColumns
@@ -51,7 +76,7 @@ const Home: NextPage = () => (
         },
       }}
     />
-    <PersonalInfo />
+    <PersonalInfo posts={posts} />
     <Footer />
     <Footer />
   </div>

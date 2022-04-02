@@ -3,7 +3,7 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { GetStaticProps } from 'next';
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Header from '../components/header';
 import Body from '../components/containers/body';
 import Footer from '../components/footer';
@@ -19,7 +19,6 @@ type PostData = {
 
 type AllJournalProps = {
     posts: PostData[]
-    totalCount: number
 }
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -32,46 +31,47 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const AllJournals: React.FunctionComponent<AllJournalProps> = ({ posts, totalCount }) => (
+const AllJournals: NextPage<AllJournalProps> = ({ posts }:
+  InferGetStaticPropsType<typeof getStaticProps>) => (
 
-  <div>
-    <Head>
-      <title>All Posts</title>
-      <meta name="description" content="All Of Ezra's Journal Posts" />
-      <meta name="pathname" content="all-journals" />
-    </Head>
-    <Header />
-    <Body backgroundColor="#cfe8a3">
-      <div className={styles.container}>
-        <h1 className={styles.title}>All Posts</h1>
-        <p className={styles.postCount}>
-          You can find all
-          {' '}
-          {totalCount}
-          {' '}
-          posts below:
-        </p>
-        <hr className={styles.line} />
-        {posts.map((post) => (
-          <Link href={post.slug} key={post.date} passHref>
-            <div
-              className={styles.link}
-            >
-              <h3>
-                {post.title}
-                {' - '}
-                {post.date}
-              </h3>
+    <div>
+      <Head>
+        <title>All Posts</title>
+        <meta name="description" content="All Of Ezra's Journal Posts" />
+        <meta name="pathname" content="all-journals" />
+      </Head>
+      <Header latestSlug={posts[0].slug!} />
+      <Body backgroundColor="#cfe8a3">
+        <div className={styles.container}>
+          <h1 className={styles.title}>All Posts</h1>
+          <p className={styles.postCount}>
+            You can find all
+            {' '}
+            {posts.length}
+            {' '}
+            posts below:
+          </p>
+          <hr className={styles.line} />
+          {posts.map((post: any) => (
+            <Link href={post.slug} key={post.date} passHref>
+              <div
+                className={styles.link}
+              >
+                <h3>
+                  {post.title}
+                  {' - '}
+                  {post.date}
+                </h3>
 
-              <p>{post.headline}</p>
-            </div>
-          </Link>
+                <p>{post.headline}</p>
+              </div>
+            </Link>
 
-        ))}
-      </div>
-    </Body>
-    <Footer />
-  </div>
+          ))}
+        </div>
+      </Body>
+      <Footer />
+    </div>
 );
 
 export default AllJournals;
