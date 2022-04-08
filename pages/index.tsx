@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const postFilenames = getAllPostFilenames();
 
   for (let i = 0; i < 3; i++) {
-    const context = makePostContext(postFilenames.length - 1 - i, postFilenames);
+    const context = makePostContext(i, postFilenames);
 
     latestPosts.push(getPostByContext(context, ['title', 'date', 'headline', 'featuredImage']));
   }
