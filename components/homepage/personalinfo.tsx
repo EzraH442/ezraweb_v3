@@ -20,12 +20,12 @@ const PersonalInfo: React.FunctionComponent<{posts: PostData[]}> = ({ posts }) =
     <div className={columns}>
       {posts.map((post) => (
         <PostPreview
-          title={post.title!}
-          key={post.date}
-          date={post.date}
-          headline={post.headline!}
-          link={post.slug!}
-          image={post.featuredImage ? post.featuredImage : null}
+          title={post.metadata.title!}
+          key={post.metadata.date}
+          date={post.metadata.date}
+          headline={post.metadata.headline!}
+          link={post.context.slug}
+          image={post.metadata.featuredImage ? post.metadata.featuredImage : null}
         />
       ))}
     </div>

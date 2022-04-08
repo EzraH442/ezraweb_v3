@@ -1,7 +1,7 @@
 import React from 'react';
 import { NextPage, GetStaticProps } from 'next';
 
-import { getPostSlugs } from '../lib/api';
+import { getAllPostFilenames } from '../lib/api';
 
 import Header from '../components/header';
 import Body from '../components/containers/body';
@@ -9,7 +9,7 @@ import Body from '../components/containers/body';
 type NextPageProps = {latestSlug: string}
 
 export const getStaticProps: GetStaticProps = async () => {
-  const slugs = getPostSlugs();
+  const slugs = getAllPostFilenames();
   return {
     props: {
       latestSlug: slugs[0],

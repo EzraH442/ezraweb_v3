@@ -10,17 +10,18 @@ import Banner from '../components/homepage/banner';
 import ThreeColumns from '../components/homepage/triple-column';
 import PersonalInfo from '../components/homepage/personalinfo';
 
-import { getPostSlugs, getPostBySlug, PostData } from '../lib/api';
+import {
+  getAllPostFilenames, getPostByContext, PostData, makePostContext,
+} from '../lib/api';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const postsSlugs = getPostSlugs();
   const latestPosts = [];
+  const postFilenames = getAllPostFilenames();
 
   for (let i = 0; i < 3; i++) {
-    latestPosts.push(getPostBySlug(
-      postsSlugs[postsSlugs.length - 1 - i],
-      ['title', 'date', 'headline', 'slug', 'featuredImage'],
-    ));
+    const context = makePostContext(postFilenames.length - 1 - i, postFilenames);
+
+    latestPosts.push(getPostByContext(context, ['title', 'date', 'headline', 'featuredImage']));
   }
 
   return {
@@ -42,7 +43,7 @@ const Home: NextPage<HomepageProps> = ({ posts }) => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <Header latestSlug={posts[0].slug!} />
+    <Header latestSlug={posts[0].context.slug} />
     <Banner />
 
     <ThreeColumns
@@ -77,7 +78,6 @@ const Home: NextPage<HomepageProps> = ({ posts }) => (
       }}
     />
     <PersonalInfo posts={posts} />
-    <Footer />
     <Footer />
   </div>
 );
