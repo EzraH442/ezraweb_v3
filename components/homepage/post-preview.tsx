@@ -22,7 +22,7 @@ const PostPreview: React.FunctionComponent<PostPreviewProps> = ({
     <h3>{title}</h3>
     <p className={postDate}>{date}</p>
     <p className={text}>{headline}</p>
-    {image ? <Image src={image} alt="" width={200} height={200} /> : '' }
+    {image ? <Image src={image} alt="" width={300} height={200} layout="responsive" /> : '' }
     <div className={postLink}>
       <Link href={link}>Full Post</Link>
     </div>

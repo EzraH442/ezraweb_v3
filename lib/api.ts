@@ -8,7 +8,13 @@ function removeMarkdownExtension(s : string): string {
   return s.replace(/\.md$/, '');
 }
 
-export function getAllPostFilenames() { return fs.readdirSync(postsDirectory).sort(); }
+export function getAllPostFilenames() {
+  return fs.readdirSync(postsDirectory).sort((a, b) => {
+    if (a < b) return 1;
+    if (a > b) return -1;
+    return 0;
+  });
+}
 export function getAllPostSlugs() {
   return fs.readdirSync(postsDirectory)
     .sort()
@@ -57,8 +63,6 @@ export function getPostByContext(context: postContext, fields: PostField[] = [])
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
-
-  console.log(data);
 
   const post: PostData = {
     metadata: {
