@@ -1,6 +1,3 @@
-.container {
-  padding: 50px 80px;
-}
 .content {
   margin-bottom: 20px;
 }
@@ -8,12 +5,12 @@
   margin: 10px;
 }
 .links {
-  margin: 15px 30px;
+  margin: 0.5rem 30px;
   display: inline-block;
 }
 .image {
   display: block;
 }
 .title {
-  
+  margin: 0
 }

@@ -28,7 +28,7 @@ const AllJournals: NextPage<AllJournalProps> = ({ posts }:
          <meta name="pathname" content="all-journals" />
        </Head>
        <Header latestSlug={posts[0].context.slug} />
-       <Body backgroundColor="#cfe8a3">
+       <Body>
          <div className={styles.container}>
            <h1 className={styles.title}>All Posts</h1>
            <p className={styles.postCount}>

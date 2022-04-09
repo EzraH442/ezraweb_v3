@@ -6,7 +6,14 @@ type BannerProps = Record<string, never>;
 
 const Banner: React.FunctionComponent<BannerProps> = () => (
   <div className={styles.container}>
-    <Image src="/images/home-top.jpg" className={styles.image} alt="Mountain Scenery" layout="responsive" width={1000} height={600} />
+    <Image
+      src="/images/home-top.jpg"
+      className={styles.image}
+      alt="Mountain Scenery"
+      layout="responsive"
+      width={1000}
+      height={600}
+    />
     <p className={styles.text}>
       &quot;a quote&quot;
       <br />

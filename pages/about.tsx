@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const AboutPage: NextPage<NextPageProps> = ({ latestSlug }) => (
   <div>
     <Header latestSlug={latestSlug} />
-    <Body backgroundColor="grey">
+    <Body>
       <h1>About Me</h1>
       <p>
         I&apos;m a grade 10 student at Western Canada High School! I&apos;m interested in

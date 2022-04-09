@@ -15,6 +15,7 @@ import markdownToHtml from '../../lib/markdownToHtml';
 import Body from '../../components/containers/body';
 import Header from '../../components/header';
 import * as styles from './blog-post.module.css';
+import Footer from '../../components/footer';
 
 type PostPageProps = {
   post: {
@@ -64,25 +65,26 @@ const Post: NextPage<PostPageProps> = ({ post, latestSlug }) => (
     </Head>
     <Header latestSlug={latestSlug} />
 
-    <Body backgroundColor="#cfe8a3">
-      <div className={styles.container}>
-        <h1 className={styles.title}>{post.post.metadata.title}</h1>
-        <p className={styles.date}>{post.post.metadata.date}</p>
-        {post.post.metadata.featuredImage && <Image src={post.post.metadata.featuredImage} alt="" className={styles.image} layout="responsive" width={300} height={300} />}
-        <div className={styles.content} dangerouslySetInnerHTML={{ __html: post.content }} />
+    <Body>
+      <h1 className={styles.title}>{post.post.metadata.title}</h1>
+      <p className={styles.date}>{post.post.metadata.date}</p>
+      {post.post.metadata.featuredImage && <Image src={post.post.metadata.featuredImage} alt="" className={styles.image} layout="responsive" width={800} height={600} />}
+      <div className={styles.content} dangerouslySetInnerHTML={{ __html: post.content }} />
 
-        <div className={styles.links}>
-          <a href={post.post.context.nextSlug}>
-            Next Post
-          </a>
-        </div>
-        <div className={styles.links}>
-          <a href={post.post.context.previousSlug}>
-            Previous Post
-          </a>
-        </div>
+      <div className={styles.links}>
+        <a href={post.post.context.previousSlug}>
+          {'<<<'}
+            &nbsp; Previous Post
+        </a>
+      </div>
+      <div className={styles.links}>
+        <a href={post.post.context.nextSlug}>
+          Next Post &nbsp;
+          {'>>>'}
+        </a>
       </div>
     </Body>
+    <Footer />
   </div>
 );
 export default Post;
