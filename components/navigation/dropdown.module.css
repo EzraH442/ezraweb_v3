@@ -2,8 +2,7 @@
   color: white;
   text-decoration: none;
   font: 200 16px Arial;
-  display: inline-block;
-  padding: 8px 18px;
+  padding: 6px;
 }
 .dropdownContainer {
   display: block;
@@ -11,6 +10,7 @@
   padding: 20px;
   text-align: center;
 }
+
 .dropdownClosed {
   display: none;
 }

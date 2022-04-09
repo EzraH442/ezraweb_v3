@@ -22,14 +22,14 @@ const NavDropdown: React.FunctionComponent<NavDropdownProps> = (props) => {
   return (
     <div onMouseEnter={() => { setClosed(false); }} onMouseLeave={() => { setClosed(true); }}>
       <NavItem>
-        <div className={styles.navLink}>
-          <Link href={`../../${address}`}>
-            {text}
-          </Link>
-        </div>
+        <Link href={address}>
+          {text}
+        </Link>
+          &nbsp;&nbsp;&nbsp;
         <FontAwesomeIcon
           icon={faAngleDown}
           className={styles.navDropdownIcon}
+          width="16"
           onClick={() => { setClosed(!closed); }}
         />
       </NavItem>

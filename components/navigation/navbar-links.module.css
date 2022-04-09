@@ -3,11 +3,8 @@
   font: 300 18px Arial;
   background-color: #222629;
   text-align: center;
-}
-
-.navLink {
-  text-decoration: none;
   color: white;
+  display: block;
 }
 
 .navDropdownIcon {

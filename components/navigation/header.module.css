@@ -23,8 +23,6 @@
 .navToggle {
   display: block;
   color: white;
-  font-size: 30px;
-  background-color: #222629;
 }
 .navToggleCollapsed {
   margin: 20px;

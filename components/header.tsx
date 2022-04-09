@@ -11,7 +11,7 @@ type HeaderProps = {
 }
 
 const Header: React.FunctionComponent<HeaderProps> = ({ latestSlug }) => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   return (
     <div className={styles.header}>
@@ -20,7 +20,10 @@ const Header: React.FunctionComponent<HeaderProps> = ({ latestSlug }) => {
       <NavbarLinks hidden={collapsed} latestSlug={`posts/${latestSlug}`} />
       <FontAwesomeIcon
         icon={faBars}
-        className={`${styles.navToggle} ${collapsed
+        width="16"
+        className={`
+        ${styles.navToggle} 
+        ${collapsed
           ? styles.navToggleCollapsed
           : styles.navToggleOpen}`}
         onClick={() => setCollapsed(!collapsed)}

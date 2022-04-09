@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import { dropdownLink } from './dropdown.module.css';
 
@@ -6,10 +7,10 @@ type DropdownLinkProps = {
     text: string
 }
 
-export default function DropdownLink({ address, text }: DropdownLinkProps) {
-  return (
-    <div className={dropdownLink}>
-      <Link href={address}>{text}</Link>
-    </div>
-  );
-}
+const DropdownLink: React.FunctionComponent<DropdownLinkProps> = ({ address, text }) => (
+  <div className={dropdownLink}>
+    <Link href={address}>{text}</Link>
+  </div>
+);
+
+export default DropdownLink;
