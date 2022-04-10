@@ -17,7 +17,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({ latestSlug }) => {
     <div className={styles.header}>
       <p className={styles.title}>{siteName}</p>
 
-      <NavbarLinks hidden={collapsed} latestSlug={`posts/${latestSlug}`} />
+      <NavbarLinks hidden={collapsed} latestSlug={latestSlug} />
       <FontAwesomeIcon
         icon={faBars}
         width="16"

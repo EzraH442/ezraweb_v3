@@ -40,7 +40,7 @@ const AllJournals: NextPage<AllJournalProps> = ({ posts }:
            </p>
            <hr className={styles.line} />
            {posts.map((post: PostData) => (
-             <Link href={`posts/${post.context.slug}`} key={post.metadata.date} passHref>
+             <Link href={`/posts/${post.context.slug}`} key={post.metadata.date} passHref>
                <div
                  className={styles.link}
                >

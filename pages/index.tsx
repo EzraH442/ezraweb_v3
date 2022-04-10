@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 
 import Header from '../components/header';
 import Footer from '../components/footer';
@@ -37,7 +36,7 @@ type HomepageProps = {
 }
 
 const Home: NextPage<HomepageProps> = ({ posts }) => (
-  <div className={styles.container}>
+  <div>
     <Head>
       <title>Home</title>
       <meta name="description" content="Ezra's Website Homepage" />

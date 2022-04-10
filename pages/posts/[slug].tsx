@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 import { ParsedUrlQuery } from 'querystring';
 import {
-  getPostBySlug, getAllPostFilenames, PostData, getAllPostSlugs,
+  getPostBySlug, PostData, getAllPostSlugs,
 } from '../../lib/api';
 import markdownToHtml from '../../lib/markdownToHtml';
 
@@ -40,7 +40,7 @@ PostPageProps, Params> = async (context) => {
         post,
         content,
       },
-      latestSlug: getAllPostFilenames()[0],
+      latestSlug: getAllPostSlugs()[0],
     },
   };
 };
