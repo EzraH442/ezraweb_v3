@@ -16,9 +16,7 @@ export function getAllPostFilenames() {
   });
 }
 export function getAllPostSlugs() {
-  return fs.readdirSync(postsDirectory)
-    .sort()
-    .map((s) => removeMarkdownExtension(s));
+  return getAllPostFilenames().map((s) => removeMarkdownExtension(s));
 }
 
 type requiredFields = 'date';
@@ -44,8 +42,8 @@ export type PostData = {
 
 export function makePostContext(i: number, fileNames: string[]): postContext {
   const slug = fileNames[i];
-  const previousSlug = fileNames[(i - 1 < 0 ? 0 : i - 1)];
-  const nextSlug = fileNames[((i === fileNames.length - 1) ? fileNames.length - 1 : i + 1)];
+  const nextSlug = fileNames[(i - 1 < 0 ? 0 : i - 1)];
+  const previousSlug = fileNames[((i === fileNames.length - 1) ? fileNames.length - 1 : i + 1)];
 
   const ret = {
     previousSlug,
