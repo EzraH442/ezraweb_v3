@@ -26,6 +26,7 @@ const AllJournals: NextPage<AllJournalProps> = ({ posts }:
          <title>All Posts</title>
          <meta name="description" content="All Of Ezra's Journal Posts" />
          <meta name="pathname" content="all-journals" />
+         <link rel="icon" href="/favicon.ico" />
        </Head>
        <Header latestSlug={posts[0].context.slug} />
        <Body>

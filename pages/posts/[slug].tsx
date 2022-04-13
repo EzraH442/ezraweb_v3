@@ -61,6 +61,7 @@ const Post: NextPage<PostPageProps> = ({ post, latestSlug }) => (
       <title>{post.post.metadata.title}</title>
       <meta name="description" content={post.post.metadata.headline} />
       <meta property="og:type" content="article" />
+      <link rel="icon" href="/favicon.ico" />
       {post.post.metadata.featuredImage && <meta property="og:image" content={post.post.metadata.featuredImage} />}
     </Head>
     <Header latestSlug={latestSlug} />
