@@ -1,10 +1,18 @@
+const headers = require('./headers');
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: true,
   },
   poweredByHeader: false,
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers,
+      },
+    ];
+  },
 };
-
-module.exports = nextConfig;
