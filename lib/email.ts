@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const siteKey = '10000000-ffff-ffff-ffff-000000000001'; // TODO change to real sitekey
-const postURL = 'https://localhost:3001';
+const siteKey = process.env.HC_KEY!;
+const postURL = process.env.MAIL_URL!;
 
 export type emailData = {
     email: string,
