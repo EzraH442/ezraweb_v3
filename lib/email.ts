@@ -13,6 +13,6 @@ const onVerifySucess = async (
   token: string,
   ekey: string,
   data: emailData,
-) => axios.post(postURL, { token, ekey, data });
+) => axios.post(postURL, `token=${token}&ekey=${ekey}&email=${data.email}&subject=${data.subject}&message=${data.message}`);
 
 export { siteKey, onVerifySucess };

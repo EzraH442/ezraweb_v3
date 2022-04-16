@@ -21,8 +21,9 @@ const ContactPage: NextPage<ContactPageProps> = () => {
     // TODO more basic client-side validation to prevent spammy server req
     captchaRef.current!.execute();
   };
-  const onVerify = (tkn: string, ekey: string) => {
-    onVerifySucess(tkn, ekey, { email, subject, message });
+  const onVerify = async (tkn: string, ekey: string) => {
+    const res = await onVerifySucess(tkn, ekey, { email, subject, message });
+    console.log(res);
   };
   const onExpire = () => { console.log('expire'); };
   const onError = (err: string) => { console.log(`hCaptcha Error: ${err}`); };
