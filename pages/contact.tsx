@@ -22,7 +22,9 @@ const ContactPage: NextPage<ContactPageProps> = () => {
     captchaRef.current!.execute();
   };
   const onVerify = async (tkn: string, ekey: string) => {
-    const res = await onVerifySucess(tkn, ekey, { email, subject, message });
+    const res = await onVerifySucess(tkn, ekey, {
+      email, subject, name, message,
+    });
     console.log(res);
   };
   const onExpire = () => { console.log('expire'); };
