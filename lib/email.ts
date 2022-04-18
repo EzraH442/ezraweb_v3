@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-const siteKey = process.env.HC_KEY || '10000000-ffff-ffff-ffff-000000000001';
-
 export type emailData = {
     email: string,
     subject: string,
@@ -15,4 +13,4 @@ const onVerifySucess = async (
   data: emailData,
 ) => axios.post('/api/post_contact', { token, ekey, data });
 
-export { siteKey, onVerifySucess };
+export default onVerifySucess;

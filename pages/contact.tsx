@@ -3,24 +3,25 @@ import Head from 'next/head';
 import { useState, useRef } from 'react';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 
-import { onVerifySucess, siteKey } from '../lib/email';
+import onVerifySucess from '../lib/email';
 import { getAllPostSlugs } from '../lib/api';
 
 import * as styles from '../styles/contact.module.css';
 import Layout from '../components/Layout';
 
-type ContactPageProps = {latestSlug: string}
+type ContactPageProps = { latestSlug: string, sitekey: string }
 
 export const getStaticProps: GetStaticProps = async () => {
   const slugs = getAllPostSlugs();
   return {
     props: {
       latestSlug: slugs[0],
+      sitekey: process.env.SITEKEY!,
     },
   };
 };
 
-const ContactPage: NextPage<ContactPageProps> = ({ latestSlug }) => {
+const ContactPage: NextPage<ContactPageProps> = ({ latestSlug, sitekey }) => {
   const captchaRef = useRef<HCaptcha>(null);
 
   const [email, setEmail] = useState('');
@@ -86,7 +87,7 @@ const ContactPage: NextPage<ContactPageProps> = ({ latestSlug }) => {
           />
           <button type="button" onClick={onSubmit}>Submit</button>
           <HCaptcha
-            sitekey={siteKey}
+            sitekey={sitekey}
             size="invisible"
             onVerify={onVerify}
             onError={onError}
