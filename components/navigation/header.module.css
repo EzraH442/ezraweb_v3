@@ -19,6 +19,7 @@
   font-weight: 600;
   padding: 20px;
   display: inline-block;
+  cursor: pointer;
 }
 .navToggle {
   display: block;

@@ -12,10 +12,8 @@ import {
 } from '../../lib/api';
 import markdownToHtml from '../../lib/markdownToHtml';
 
-import Body from '../../components/containers/body';
-import Header from '../../components/header';
+import Layout from '../../components/Layout';
 import * as styles from './blog-post.module.css';
-import Footer from '../../components/footer';
 
 type PostPageProps = {
   post: {
@@ -58,34 +56,30 @@ export const getStaticPaths: GetStaticPaths<Params> = () => {
 const Post: NextPage<PostPageProps> = ({ post, latestSlug }) => (
   <div>
     <Head>
-      <title>{post.post.metadata.title}</title>
+      <title>{`${post.post.metadata.title} | EZ`}</title>
       <meta name="description" content={post.post.metadata.headline} />
       <meta property="og:type" content="article" />
       <link rel="icon" href="/favicon.ico" />
       {post.post.metadata.featuredImage && <meta property="og:image" content={post.post.metadata.featuredImage} />}
     </Head>
-    <Header latestSlug={latestSlug} />
+    <Layout latestSlug={latestSlug}>
 
-    <Body>
       <h1 className={styles.title}>{post.post.metadata.title}</h1>
-      <p className={styles.date}>{post.post.metadata.date}</p>
+      <h2 className={styles.date}>{post.post.metadata.date}</h2>
+      <hr />
       {post.post.metadata.featuredImage && <Image src={post.post.metadata.featuredImage} alt="" className={styles.image} layout="responsive" width={800} height={600} />}
       <div className={styles.content} dangerouslySetInnerHTML={{ __html: post.content }} />
-
       <div className={styles.links}>
         <a href={post.post.context.previousSlug}>
           {'<<<'}
             &nbsp; Previous Post
         </a>
-      </div>
-      <div className={styles.links}>
         <a href={post.post.context.nextSlug}>
           Next Post &nbsp;
           {'>>>'}
         </a>
       </div>
-    </Body>
-    <Footer />
+    </Layout>
   </div>
 );
 export default Post;

@@ -1,12 +1,9 @@
 import React from 'react';
 import { NextPage, GetStaticProps } from 'next';
-
 import Head from 'next/head';
-import { getAllPostSlugs } from '../lib/api';
 
-import Header from '../components/header';
-import Body from '../components/containers/body';
-import Footer from '../components/footer';
+import { getAllPostSlugs } from '../lib/api';
+import Layout from '../components/Layout';
 
 type NextPageProps = {latestSlug: string}
 
@@ -20,21 +17,22 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const AboutPage: NextPage<NextPageProps> = ({ latestSlug }) => (
-  <div>
+  <>
     <Head>
-      <meta name="description" content="About Ezra" />
-      <link rel="icon" href="/favicon.ico" />
+      <title>About | EZ</title>
+      <meta name="description" content="About Me" />
+      <link rel="icon" href="/images/favicon.ico" />
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <Header latestSlug={latestSlug} />
-    <Body>
+    <Layout latestSlug={latestSlug}>
       <h1>About Me</h1>
+      <hr />
       <p>
         I&apos;m a grade 10 student at Western Canada High School! I&apos;m interested in
         programming, and have made a variety of applications!
       </p>
-    </Body>
-    <Footer />
-  </div>
+    </Layout>
+  </>
 );
 
 export default AboutPage;

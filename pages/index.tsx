@@ -38,9 +38,10 @@ type HomepageProps = {
 const Home: NextPage<HomepageProps> = ({ posts }) => (
   <div>
     <Head>
-      <title>Home</title>
-      <meta name="description" content="Ezra's Website Homepage" />
-      <link rel="icon" href="/favicon.ico" />
+      <title>Home | Ez</title>
+      <link rel="icon" href="/public/favicon.ico" />
+      <meta name="description" content="The homepage of Ezra's website" />
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
 
     <Header latestSlug={posts[0].context.slug} />

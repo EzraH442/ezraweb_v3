@@ -4,9 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
-import Header from '../components/header';
-import Body from '../components/containers/body';
-import Footer from '../components/footer';
+import Layout from '../components/Layout';
 import * as styles from '../styles/journals.module.css';
 import { getAllPosts, PostData } from '../lib/api';
 
@@ -21,25 +19,21 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const AllJournals: NextPage<AllJournalProps> = ({ posts }:
    InferGetStaticPropsType<typeof getStaticProps>) => (
-     <div>
+     <>
        <Head>
-         <title>All Posts</title>
-         <meta name="description" content="All Of Ezra's Journal Posts" />
-         <meta name="pathname" content="all-journals" />
+         <title>All Posts | EZ</title>
          <link rel="icon" href="/favicon.ico" />
+         <meta name="description" content="All Of Ezra's Journal Posts" />
        </Head>
-       <Header latestSlug={posts[0].context.slug} />
-       <Body>
-         <div className={styles.container}>
-           <h1 className={styles.title}>All Posts</h1>
-           <p className={styles.postCount}>
-             You can find all
-             {' '}
-             {posts.length}
-             {' '}
-             posts below:
-           </p>
-           <hr className={styles.line} />
+       <Layout latestSlug={posts[0].context.slug}>
+         <h1>All Posts</h1>
+         <hr />
+         <h2 className={styles.postCount}>
+           You can find all
+           {` ${posts.length} `}
+           posts below:
+         </h2>
+         <div className={styles.links}>
            {posts.map((post: PostData) => (
              <Link href={`/posts/${post.context.slug}`} key={post.metadata.date} passHref>
                <div
@@ -52,12 +46,12 @@ const AllJournals: NextPage<AllJournalProps> = ({ posts }:
                  </h3>
 
                  <p>{post.metadata.headline}</p>
+                 <hr />
                </div>
              </Link>
            ))}
          </div>
-       </Body>
-       <Footer />
-     </div>
+       </Layout>
+     </>
 );
 export default AllJournals;

@@ -7,6 +7,7 @@ function buildTextCol(title: string, text: string) {
   return (
     <div className={`${styles.column} ${styles.text}`}>
       <h2>{title}</h2>
+      <hr />
       <p>{text}</p>
     </div>
   );

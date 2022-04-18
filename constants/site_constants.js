@@ -1,2 +1,2 @@
-export const siteName = "Ezra's Website";
+export const siteName = "ezra's Website";
 export const author = 'Ezra';

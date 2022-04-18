@@ -23,9 +23,9 @@ const PostPreview: React.FunctionComponent<PostPreviewProps> = ({
     <p className={postDate}>{date}</p>
     <p className={text}>{headline}</p>
     {image ? <Image src={image} alt="" width={300} height={200} layout="responsive" /> : '' }
-    <div className={postLink}>
-      <Link href={`/posts/${link}`}>Full Post</Link>
-    </div>
+    <Link href={`/posts/${link}`} passHref>
+      <a className={postLink} href="inherit">Full Post</a>
+    </Link>
   </div>
 );
 

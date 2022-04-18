@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Link from 'next/link';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { siteName } from '../constants/site_constants';
@@ -15,7 +15,9 @@ const Header: React.FunctionComponent<HeaderProps> = ({ latestSlug }) => {
 
   return (
     <div className={styles.header}>
-      <p className={styles.title}>{siteName}</p>
+      <Link href="/" passHref>
+        <p className={styles.title}>{siteName}</p>
+      </Link>
 
       <NavbarLinks hidden={collapsed} latestSlug={latestSlug} />
       <FontAwesomeIcon

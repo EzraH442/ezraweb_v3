@@ -1,23 +1,18 @@
-.container {
-  padding: 30px;
-}
-.title {
-  margin: 0;
-  font: 300 28px "Raleway";
-}
 .postCount {
   font-size: 18px;
 }
-.line {
-  align-self: stretch;
-  min-height: 1px;
-  background-color: black;
-  margin: 15px 0;
+.links {
+  padding: 14px;
 }
 .link {
-  text-decoration: none;
-  color: black;
+  margin: 12px 0px;
+  cursor:pointer;
 }
-.link div {
-  margin: 20px 0;
+.link h3 {
+  font: 300 24px 'Comfortaa';
+  margin: 2px 0;
+}
+.link hr {
+  width: 60%;
+  margin-left: 10px;
 }

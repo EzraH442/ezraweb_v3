@@ -1,7 +1,18 @@
 .body {
   min-height: calc(100vh - 152px);
-  padding: 0 2rem;
+  padding: 15px 30px;
 }
+
+.body h1 {
+  font: 400 32px "Raleway", sans-serif;
+  padding: 12px;
+}
+
+.body h2 {
+  font: 300 18px 'Comfortaa', sans-serif;
+  padding: 0 12px;
+}
+
 @media all and (min-width: 960px) {
   .body {
     min-height: calc(100vh - 230px);

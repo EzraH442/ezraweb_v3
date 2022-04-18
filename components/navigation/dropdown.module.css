@@ -1,7 +1,7 @@
 .dropdownLink {
   color: white;
   text-decoration: none;
-  font: 200 16px Arial;
+  font: 300 16px 'Open Sans', sans-serif;
   padding: 6px;
 }
 .dropdownContainer {
