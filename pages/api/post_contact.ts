@@ -9,7 +9,7 @@ const handler: NextApiHandler = async (req, res) => {
     email: data.email,
     subject: data.subject,
     name: data.name,
-    message: data.subject,
+    message: data.message,
   });
   const response = await axios.post(process.env.POST_URL!, params);
   res.end(response.status);
