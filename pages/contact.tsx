@@ -1,4 +1,5 @@
 import { NextPage, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { useState, useRef } from 'react';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
@@ -25,25 +26,25 @@ const ContactPage: NextPage<ContactPageProps> = ({ latestSlug, sitekey }) => {
   const captchaRef = useRef<HCaptcha>(null);
 
   const [email, setEmail] = useState('');
+  const [error, setError] = useState(false);
   const [name, setName] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
+  const router = useRouter();
 
   const onSubmit = () => {
-    if (name.length < 3) {
-      return;
-    }
-    // TODO more basic client-side validation to prevent spammy server req
     captchaRef.current!.execute();
   };
   const onVerify = async (tkn: string, ekey: string) => {
     const res = await onVerifySucess(tkn, ekey, {
       email, subject, name, message,
     });
-    console.log(res);
+    if (res.status === 400) {
+      router.push('/sucess');
+    } else {
+      setError(true);
+    }
   };
-  const onExpire = () => { console.log('expire'); };
-  const onError = (err: string) => { console.log(`hCaptcha Error: ${err}`); };
 
   return (
     <>
@@ -90,11 +91,10 @@ const ContactPage: NextPage<ContactPageProps> = ({ latestSlug, sitekey }) => {
             sitekey={sitekey}
             size="invisible"
             onVerify={onVerify}
-            onError={onError}
-            onExpire={onExpire}
             ref={captchaRef}
           />
         </form>
+        {error ? <p>An Unexpected Error Occureed. Please try again later.</p> : null}
       </Layout>
     </>
   );

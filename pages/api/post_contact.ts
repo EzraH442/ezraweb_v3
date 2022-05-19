@@ -12,7 +12,8 @@ const handler: NextApiHandler = async (req, res) => {
     message: data.message,
   });
   const response = await axios.post(process.env.POST_URL!, params);
-  res.end(response.status);
+  res.status(response.status);
+  res.end(response.statusText);
 };
 
 export default handler;
