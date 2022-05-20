@@ -12,7 +12,9 @@ const handler: NextApiHandler = async (req, res) => {
     message: data.message,
   });
   const response = await axios.post(process.env.POST_URL!, params);
-  res.status(response.status);
+  res.writeHead(response.status, {
+    'Content-Type': 'text/plain',
+  });
   res.end(response.statusText);
 };
 
