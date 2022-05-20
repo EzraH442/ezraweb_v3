@@ -93,8 +93,10 @@ const ContactPage: NextPage<ContactPageProps> = ({ latestSlug, sitekey }) => {
             onVerify={onVerify}
             ref={captchaRef}
           />
+          <p className={error ? styles.errorActive : styles.hidden}>
+            An Unexpected Error Occurred. Please try again later.
+          </p>
         </form>
-        {error ? <p>An Unexpected Error Occurred. Please try again later.</p> : null}
       </Layout>
     </>
   );
