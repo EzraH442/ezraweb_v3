@@ -39,7 +39,7 @@ const ContactPage: NextPage<ContactPageProps> = ({ latestSlug, sitekey }) => {
     const res = await onVerifySucess(tkn, ekey, {
       email, subject, name, message,
     });
-    if (res.status === 400) {
+    if (res.status === 200) {
       router.push('/sucess');
     } else {
       setError(true);
@@ -94,7 +94,7 @@ const ContactPage: NextPage<ContactPageProps> = ({ latestSlug, sitekey }) => {
             ref={captchaRef}
           />
         </form>
-        {error ? <p>An Unexpected Error Occureed. Please try again later.</p> : null}
+        {error ? <p>An Unexpected Error Occurred. Please try again later.</p> : null}
       </Layout>
     </>
   );
