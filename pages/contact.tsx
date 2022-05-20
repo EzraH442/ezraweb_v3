@@ -40,7 +40,7 @@ const ContactPage: NextPage<ContactPageProps> = ({ latestSlug, sitekey }) => {
       email, subject, name, message,
     });
     if (res.status === 200) {
-      router.push('/sucess');
+      router.push('/success');
     } else {
       setError(true);
     }
