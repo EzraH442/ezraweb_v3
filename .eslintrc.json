@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "airbnb",
-    "next/core-web-vitals"
-  ],
+  "extends": ["airbnb", "next/core-web-vitals"],
   "parser": "@typescript-eslint/parser",
   "overrides": [
     {
@@ -15,7 +12,10 @@
   "rules": {
     "no-plusplus": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
-    "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
+    "react/function-component-definition": [
+      2,
+      { "namedComponents": "arrow-function" }
+    ],
     "import/extensions": [
       "error",
       "always",
@@ -24,6 +24,8 @@
         "ts": "never",
         "tsx": "never"
       }
-    ]
+    ],
+    "max-len": ["error", { "code": 80 }],
+    "quotes": ["off"]
   }
 }
