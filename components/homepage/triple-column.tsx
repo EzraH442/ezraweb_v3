@@ -14,6 +14,7 @@ const Column: React.FC<IColumnProps> = ({ children }) => (
   <div
     className="mx-3 my-5 min-w-0 content-center shadow-md shadow-black
   basis-72 grow"
+    style={{ height: 385 }}
   >
     {children}
   </div>
@@ -23,7 +24,9 @@ const TextColumn: React.FC<ITextColumnProps> = ({ title, text }) => (
   <Column>
     <div className="p-4">
       <h2>{title}</h2>
-      <hr />
+      <div className="mt-2 mb-4">
+        <hr className="divide-black border-black" />
+      </div>
       <p>{text}</p>
     </div>
   </Column>
