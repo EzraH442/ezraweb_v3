@@ -1,12 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import Header from './header';
-import Footer from './footer';
-import Body from './containers/body';
+import Header from "./header";
+import Footer from "./footer";
+import Body from "./containers/body";
 
-type LayoutProps = {latestSlug: string}
+type LayoutProps = { latestSlug: string };
 
-const Layout: React.FunctionComponent<LayoutProps> = ({ latestSlug, children }) => (
+const Layout: React.FunctionComponent<LayoutProps> = ({
+  latestSlug,
+  children,
+}) => (
   <>
     <Header latestSlug={latestSlug} />
     <Body>{children}</Body>

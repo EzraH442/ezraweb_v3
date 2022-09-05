@@ -1,8 +1,13 @@
-import React from 'react';
-
-import * as styles from './navbar-links.module.css';
+import React from "react";
 
 const NavItem: React.FunctionComponent<{}> = ({ children }) => (
-  <div className={styles.navItem}>{children}</div>);
+  <div
+    className="px-5 py-3
+    font-light font-sans text-lg text-center text-white block"
+    style={{ backgroundColor: "222629" }}
+  >
+    {children}
+  </div>
+);
 
 export default NavItem;

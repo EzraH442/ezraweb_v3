@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { dropdownLink } from "./dropdown.module.css";
 
 type DropdownLinkProps = {
   address: string;
@@ -11,7 +10,7 @@ const DropdownLink: React.FunctionComponent<DropdownLinkProps> = ({
   address,
   text,
 }) => (
-  <div className={dropdownLink}>
+  <div className="text-white font-light font-sans p-2">
     <Link href={address}>{text}</Link>
   </div>
 );

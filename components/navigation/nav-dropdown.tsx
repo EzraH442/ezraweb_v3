@@ -6,8 +6,7 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NavItem from "./nav-item";
 
-import * as styles from "./navbar-links.module.css";
-import { dropdownContainer, dropdownClosed } from "./dropdown.module.css";
+import { dropdownContainer } from "./dropdown.module.css";
 
 type NavDropdownProps = {
   address: string;
@@ -31,18 +30,21 @@ const NavDropdown: React.FunctionComponent<NavDropdownProps> = (props) => {
       <NavItem>
         <Link href={address}>{text}</Link>
         &nbsp;&nbsp;&nbsp;
-        <FontAwesomeIcon
-          icon={faAngleDown}
-          className={styles.navDropdownIcon}
-          width="16"
-          onClick={() => {
-            setClosed(!closed);
-          }}
-        />
+        <div className="tb:hidden">
+          <FontAwesomeIcon
+            icon={faAngleDown}
+            className="text-white inline"
+            style={{
+              margin: "-5px 1px",
+            }}
+            width="16"
+            onClick={() => {
+              setClosed(!closed);
+            }}
+          />
+        </div>
       </NavItem>
-      <div className={closed ? dropdownClosed : dropdownContainer}>
-        {children}
-      </div>
+      <div className={closed ? "hidden" : dropdownContainer}>{children}</div>
     </div>
   );
 };
