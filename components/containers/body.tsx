@@ -3,7 +3,6 @@ import React from "react";
 import { body } from "./body.module.css";
 
 type BodyProps = {
-  // eslint-disable-next-line react/require-default-props
   backgroundColor?: string;
 };
 

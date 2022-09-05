@@ -1,10 +1,12 @@
 import React from "react";
 
+import Image from "next/image";
 import * as styles from "./personalinfo.module.css";
 import { columns } from "./triple-column.module.css";
 
-import PostPreview from "./post-preview";
 import { PostData } from "../../lib/api";
+import Column from "./column";
+import TextButton from "./TextButon";
 
 const PersonalInfo: React.FunctionComponent<{ posts: PostData[] }> = ({
   posts,
@@ -21,16 +23,28 @@ const PersonalInfo: React.FunctionComponent<{ posts: PostData[] }> = ({
 
     <div className={columns}>
       {posts.map((post) => (
-        <PostPreview
-          title={post.metadata.title!}
-          key={post.metadata.date}
-          date={post.metadata.date}
-          headline={post.metadata.headline!}
-          link={post.context.slug}
-          image={
-            post.metadata.featuredImage ? post.metadata.featuredImage : null
-          }
-        />
+        <Column key={post.metadata.date} height="auto">
+          <div className="px-4 py-4">
+            <h3>{post.metadata.title!}</h3>
+            <p className="mx-4 my-2">{post.metadata.date}</p>
+            <p className="basis-72 mx-3">{post.metadata.headline}</p>
+            {post.metadata.featuredImage && (
+              <Image
+                src={post.metadata.featuredImage}
+                alt=""
+                width={300}
+                height={200}
+                layout="responsive"
+              />
+            )}
+            <div className="px-3 py-7">
+              <TextButton
+                href={`/posts/${post.context.slug}`}
+                label="Full Post"
+              />
+            </div>
+          </div>
+        </Column>
       ))}
     </div>
   </div>

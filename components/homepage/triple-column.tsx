@@ -1,24 +1,11 @@
 import React from "react";
 import Image from "next/image";
+import Column from "./column";
 
 interface ITextColumnProps {
   title: string;
   text: string;
 }
-
-interface IColumnProps {
-  children: React.ReactNode;
-}
-
-const Column: React.FC<IColumnProps> = ({ children }) => (
-  <div
-    className="mx-3 my-5 min-w-0 content-center shadow-md shadow-black
-  basis-72 grow"
-    style={{ height: 385 }}
-  >
-    {children}
-  </div>
-);
 
 const TextColumn: React.FC<ITextColumnProps> = ({ title, text }) => (
   <Column>
