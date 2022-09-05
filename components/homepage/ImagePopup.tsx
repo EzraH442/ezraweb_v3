@@ -21,14 +21,8 @@ const ImagePopup: React.FC<IImagePopupProps> = ({
       } flex flex-col items-center justify-center
        fixed top-0 left-0 h-full w-full `}
     >
-      <div style={{ width: "50vw", height: "auto" }}>
-        <Image
-          src={src}
-          alt={alt}
-          layout="responsive"
-          width="1000"
-          height="1000"
-        />
+      <div style={{ width: "50vw" }} className="flex justify-center">
+        <img src={src} alt={alt} />
       </div>
       <button
         type="button"
