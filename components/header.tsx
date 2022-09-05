@@ -18,11 +18,8 @@ const Header: React.FunctionComponent<HeaderProps> = ({ latestSlug }) => {
   const [collapsed, setCollapsed] = useState(true);
 
   return (
-    <div className="bg-gray-dark">
-      <div
-        className="tb:inline-flex tb:flex-row tb:justify-between
-      tb:h-150 w-1/2 tb:w-full"
-      >
+    <div className="bg-gray-dark w-full">
+      <div className="tb:flex tb:justify-between tb:h-150 w-full">
         <Link href="/" passHref>
           <p
             className="cursor-pointer inline-block p-16
@@ -32,13 +29,24 @@ const Header: React.FunctionComponent<HeaderProps> = ({ latestSlug }) => {
             {siteName}
           </p>
         </Link>
+        <span
+          className={`${
+            collapsed ? "" : ""
+          } absolute top-16 right-16 text-white tb:hidden`}
+        >
+          <FontAwesomeIcon
+            icon={faBars}
+            width={20}
+            onClick={() => setCollapsed(!collapsed)}
+          />
+        </span>
 
         <nav
           className={`${
             collapsed
-              ? "hidden tb:!inline-flex tb:pr-16 tb:justify-end tb:items-center"
-              : "flex flex-col flex-wrap tb:items-center"
-          } tb:hidden
+              ? "hidden tb:!inline-flex tb:pr-16 tb:justify-end"
+              : "flex flex-col flex-wrap"
+          } tb:hidden items-center
       `}
         >
           <NavLink address="/" text="Home" />
@@ -49,11 +57,18 @@ const Header: React.FunctionComponent<HeaderProps> = ({ latestSlug }) => {
           </NavDropdown>
           <NavLink address="/contact" text="Contact" />
         </nav>
+        <div
+          className={`${
+            collapsed ? "hidden" : ""
+          } flex items-center justify-center text-white py-8 tb:hidden`}
+        >
+          <FontAwesomeIcon
+            icon={faBars}
+            width={20}
+            onClick={() => setCollapsed(!collapsed)}
+          />
+        </div>
       </div>
-      <FontAwesomeIcon icon={faBars} onClick={() => setCollapsed(!collapsed)} />
-      {
-        // TODO: make 2 fa hamburger icons intead of 1
-      }
     </div>
   );
 };

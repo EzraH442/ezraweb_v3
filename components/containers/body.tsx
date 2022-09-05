@@ -1,15 +1,18 @@
-import React from 'react';
+import React from "react";
 
-import { body } from './body.module.css';
+import { body } from "./body.module.css";
 
 type BodyProps = {
-    // eslint-disable-next-line react/require-default-props
-    backgroundColor?: string,
-}
+  // eslint-disable-next-line react/require-default-props
+  backgroundColor?: string;
+};
 
-const Body: React.FunctionComponent<BodyProps> = ({ backgroundColor = '#cfe8a3', children }) => (
+const Body: React.FunctionComponent<BodyProps> = ({
+  backgroundColor = "#cfe8a3",
+  children,
+}) => (
   <div style={{ backgroundColor }} className={body}>
-    { children }
+    {children}
   </div>
 );
 

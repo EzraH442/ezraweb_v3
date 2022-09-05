@@ -1,7 +1,34 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
-import * as styles from './triple-column.module.css';
+import * as styles from "./triple-column.module.css";
+
+// .columns {
+//   display: flex;
+//   flex-flow: row wrap;
+//   align-content: center;
+//   justify-content: space-evenly;
+//   max-width: 100%;
+// }
+// .column {
+//   margin: 10px 20px;
+//   min-width: 0;
+//   min-height: 0;
+//   align-content: center;
+//   -moz-box-shadow: inset 0 0 10px #000000;
+//   -webkit-box-shadow: inset 0 0 10px #000000;
+//   box-shadow: 0 0 10px #000000;
+//   flex: 1 2 300px;
+// }
+// .text {
+//   padding: 20px;
+//   flex: 1 1 300px;
+// }
+// .column img {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
 
 function buildTextCol(title: string, text: string) {
   return (
@@ -21,22 +48,25 @@ function buildImageCol(src: string, alt: string) {
 }
 
 type ImageType = {
-            imageUrl: string,
-            altText: string,
-}
+  imageUrl: string;
+  altText: string;
+};
 
 type ThreeColumnsProps = {
-    pos: 1|2|3,
-    title: string,
-    text: string,
-    images: {
-        image1: ImageType,
-        image2: ImageType,
-    }
-}
+  pos: 1 | 2 | 3;
+  title: string;
+  text: string;
+  images: {
+    image1: ImageType;
+    image2: ImageType;
+  };
+};
 
 const ThreeColumns: React.FunctionComponent<ThreeColumnsProps> = ({
-  pos, title, text, images,
+  pos,
+  title,
+  text,
+  images,
 }) => {
   if (pos === 1) {
     return (
@@ -46,7 +76,8 @@ const ThreeColumns: React.FunctionComponent<ThreeColumnsProps> = ({
         {buildImageCol(images.image2.imageUrl, images.image2.altText)}
       </div>
     );
-  } if (pos === 2) {
+  }
+  if (pos === 2) {
     return (
       <div className={styles.columns}>
         {buildImageCol(images.image1.imageUrl, images.image1.altText)}
@@ -54,7 +85,8 @@ const ThreeColumns: React.FunctionComponent<ThreeColumnsProps> = ({
         {buildImageCol(images.image2.imageUrl, images.image2.altText)}
       </div>
     );
-  } if (pos === 3) {
+  }
+  if (pos === 3) {
     return (
       <div className={styles.columns}>
         {buildImageCol(images.image1.imageUrl, images.image1.altText)}
