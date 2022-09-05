@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer: React.FunctionComponent<{}> = () => (
+const Footer: React.FC<{}> = () => (
   <footer
     className="bg-gray-dark text-white text-center
   font-sans font-extralight"

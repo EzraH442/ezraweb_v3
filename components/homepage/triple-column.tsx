@@ -30,22 +30,29 @@ import * as styles from "./triple-column.module.css";
 //   object-fit: cover;
 // }
 
-function buildTextCol(title: string, text: string) {
-  return (
-    <div className={`${styles.column} ${styles.text}`}>
-      <h2>{title}</h2>
-      <hr />
-      <p>{text}</p>
-    </div>
-  );
+interface ITextColumnProps {
+  title: string;
+  text: string;
 }
-function buildImageCol(src: string, alt: string) {
-  return (
-    <div className={styles.column}>
-      <Image src={src} alt={alt} layout="responsive" width={300} height={300} />
-    </div>
-  );
+
+const TextColumn: React.FC<ITextColumnProps> = ({ title, text }) => (
+  <div className={`${styles.column} ${styles.text}`}>
+    <h2>{title}</h2>
+    <hr />
+    <p>{text}</p>
+  </div>
+);
+
+interface IImageColumnProps {
+  src: string;
+  alt: string;
 }
+
+const ImageColumn: React.FC<IImageColumnProps> = ({ src, alt }) => (
+  <div className={styles.column}>
+    <Image src={src} alt={alt} layout="responsive" width={300} height={300} />
+  </div>
+);
 
 type ImageType = {
   imageUrl: string;
@@ -62,52 +69,28 @@ type ThreeColumnsProps = {
   };
 };
 
-const ThreeColumns: React.FunctionComponent<ThreeColumnsProps> = ({
+const ThreeColumns: React.FC<ThreeColumnsProps> = ({
   pos,
   title,
   text,
   images,
 }) => {
-  if (pos === 1) {
-    return (
-      <div className={styles.columns}>
-        {buildTextCol(title, text)}
-        {buildImageCol(images.image1.imageUrl, images.image1.altText)}
-        {buildImageCol(images.image2.imageUrl, images.image2.altText)}
-      </div>
-    );
-  }
-  if (pos === 2) {
-    return (
-      <div className={styles.columns}>
-        {buildImageCol(images.image1.imageUrl, images.image1.altText)}
-        {buildTextCol(title, text)}
-        {buildImageCol(images.image2.imageUrl, images.image2.altText)}
-      </div>
-    );
-  }
-  if (pos === 3) {
-    return (
-      <div className={styles.columns}>
-        {buildImageCol(images.image1.imageUrl, images.image1.altText)}
-        {buildImageCol(images.image2.imageUrl, images.image2.altText)}
-        {buildTextCol(title, text)}
-      </div>
-    );
-  }
+  const components = [
+    <TextColumn key="dd" title={title} text={text} />,
+    <ImageColumn
+      key="ee"
+      src={images.image1.imageUrl}
+      alt={images.image1.altText}
+    />,
+    <ImageColumn
+      key="ff"
+      src={images.image2.imageUrl}
+      alt={images.image2.altText}
+    />,
+  ];
+
   return (
-    <div className={styles.columns}>
-      <div className={`${styles.column} ${styles.text}`}>
-        <h2>{title}</h2>
-        <p>{text}</p>
-      </div>
-      <div className={styles.column}>
-        <Image src={images.image1.imageUrl} alt={images.image1.altText} />
-      </div>
-      <div className={styles.column}>
-        <Image src={images.image2.imageUrl} alt={images.image2.altText} />
-      </div>
-    </div>
+    <div>{components.map((e, index, arr) => arr[(index + pos - 1) % 3])}</div>
   );
 };
 
