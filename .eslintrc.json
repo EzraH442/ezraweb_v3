@@ -25,6 +25,7 @@
         "tsx": "never"
       }
     ],
+    "arrow-body-style": ["off"],
     "max-len": ["error", { "code": 80 }],
     "quotes": ["off"],
     "react/require-default-props": ["off"]
