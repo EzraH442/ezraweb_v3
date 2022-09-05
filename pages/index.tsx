@@ -7,8 +7,6 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import Banner from "../components/homepage/banner";
 
-import ThreeColumns from "../components/homepage/triple-column";
-
 import {
   getAllPostFilenames,
   getPostByContext,
@@ -18,7 +16,9 @@ import {
 import Body from "../components/containers/body";
 import Column from "../components/homepage/column";
 import TextButton from "../components/homepage/TextButon";
-import { columns } from "../components/homepage/triple-column.module.css";
+import Columns from "../components/homepage/columns";
+import TextColumn from "../components/homepage/TextColumn";
+import ImageColumn from "./ImageColumn";
 
 export const getStaticProps: GetStaticProps = async () => {
   const latestPosts = [];
@@ -56,37 +56,29 @@ const Home: NextPage<HomepageProps> = ({ posts }) => (
     <Banner />
 
     <Body>
-      <ThreeColumns
-        pos={0}
-        title="Backpacking"
-        text="I like to go backpacking!"
-        images={{
-          image1: {
-            imageUrl: "/images/column2.jpg",
-            altText: "Backpacking across a large scree field",
-          },
-          image2: {
-            imageUrl: "/images/right.jpg",
-            altText: "Great views from the top of a mountain",
-          },
-        }}
-      />
+      <Columns>
+        <TextColumn title="Backpacking" text="I like to go backpacking!" />
+        <ImageColumn
+          src="/images/column2.jpg"
+          alt="Backpacking across a large scree field"
+        />
+        <ImageColumn
+          src="/images/right.jpg"
+          alt="Great views from the top of a mountain"
+        />
+      </Columns>
+      <Columns>
+        <ImageColumn
+          src="/images/summit.jpg"
+          alt="Backpacking across a large scree field"
+        />
+        <ImageColumn
+          src="/images/right.jpg"
+          alt="Great views from the top of a mountain"
+        />
+        <TextColumn title="Scrambling" text="I also love climbing mountains!" />
+      </Columns>
 
-      <ThreeColumns
-        pos={1}
-        title="Scrambling"
-        text="I also love climbing mountains!"
-        images={{
-          image1: {
-            imageUrl: "/images/summit.jpg",
-            altText: "Backpacking across a large scree field",
-          },
-          image2: {
-            imageUrl: "/images/summit.jpg",
-            altText: "Great views from the top of a mountain",
-          },
-        }}
-      />
       <div className="flex flex-col items-center">
         <h2 className="font-raleway text-2xl mx-10 mb-3">About Me</h2>
         <p className="text-center text-lg">
@@ -96,7 +88,7 @@ const Home: NextPage<HomepageProps> = ({ posts }) => (
         <div className="w-11/12">
           <hr className="border-black" />
         </div>
-        <div className={columns}>
+        <Columns>
           {posts.map((post) => (
             <Column key={post.metadata.date} height="auto">
               <div className="px-4 py-4">
@@ -121,7 +113,7 @@ const Home: NextPage<HomepageProps> = ({ posts }) => (
               </div>
             </Column>
           ))}
-        </div>
+        </Columns>
       </div>
     </Body>
     <Footer />
