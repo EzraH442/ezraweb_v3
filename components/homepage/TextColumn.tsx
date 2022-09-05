@@ -1,5 +1,5 @@
 import React from "react";
-import Column from "./column";
+import Column from "./Column";
 
 interface ITextColumnProps {
   title: string;

@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { NextApiHandler } from 'next';
+import axios from "axios";
+import { NextApiHandler } from "next";
 
 const handler: NextApiHandler = async (req, res) => {
   const { token, ekey, data } = req.body;
@@ -13,7 +13,7 @@ const handler: NextApiHandler = async (req, res) => {
   });
   const response = await axios.post(process.env.POST_URL!, params);
   res.writeHead(response.status, {
-    'Content-Type': 'text/plain',
+    "Content-Type": "text/plain",
   });
   res.end(response.statusText);
 };

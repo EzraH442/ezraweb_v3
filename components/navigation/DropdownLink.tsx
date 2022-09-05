@@ -1,12 +1,12 @@
-import React from "react";
 import Link from "next/link";
+import React from "react";
 
-type DropdownLinkProps = {
+interface IDropdownLinkProps {
   address: string;
   text: string;
-};
+}
 
-const DropdownLink: React.FunctionComponent<DropdownLinkProps> = ({
+const DropdownLink: React.FunctionComponent<IDropdownLinkProps> = ({
   address,
   text,
 }) => (

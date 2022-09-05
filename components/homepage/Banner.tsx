@@ -1,9 +1,7 @@
-import React from "react";
 import Image from "next/image";
+import React from "react";
 
-type BannerProps = Record<string, never>;
-
-const Banner: React.FunctionComponent<BannerProps> = () => (
+const Banner: React.FunctionComponent<{}> = () => (
   <div className="relative">
     <Image
       src="/images/home-top.jpg"

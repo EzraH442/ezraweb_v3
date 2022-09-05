@@ -1,12 +1,11 @@
 import React from "react";
-
 import { body } from "./body.module.css";
 
-type BodyProps = {
+interface IBodyProps {
   backgroundColor?: string;
-};
+}
 
-const Body: React.FunctionComponent<BodyProps> = ({
+const Body: React.FunctionComponent<IBodyProps> = ({
   backgroundColor = "#cfe8a3",
   children,
 }) => (

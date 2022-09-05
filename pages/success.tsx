@@ -1,11 +1,12 @@
-import React from 'react';
-import { NextPage, GetStaticProps } from 'next';
-import Head from 'next/head';
+import { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
+import React from "react";
+import Layout from "../components/Layout";
+import { getAllPostSlugs } from "../lib/api";
 
-import { getAllPostSlugs } from '../lib/api';
-import Layout from '../components/Layout';
-
-type SucessPageProps = {latestSlug: string}
+interface ISucessPageProps {
+  latestSlug: string;
+}
 
 export const getStaticProps: GetStaticProps = async () => {
   const slugs = getAllPostSlugs();
@@ -16,7 +17,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const SucessPage: NextPage<SucessPageProps> = ({ latestSlug }) => (
+const SucessPage: NextPage<ISucessPageProps> = ({ latestSlug }) => (
   <>
     <Head>
       <title>Form Submission Complete</title>
@@ -27,9 +28,7 @@ const SucessPage: NextPage<SucessPageProps> = ({ latestSlug }) => (
     <Layout latestSlug={latestSlug}>
       <h1>Thank you!</h1>
       <hr />
-      <p>
-        Your form submission has been recieved. Thank you!.
-      </p>
+      <p>Your form submission has been recieved. Thank you!.</p>
     </Layout>
   </>
 );

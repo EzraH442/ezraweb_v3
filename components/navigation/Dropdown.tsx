@@ -1,20 +1,17 @@
-import React, { useState } from "react";
-
-import Link from "next/link";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import NavItem from "./nav-item";
-
+import Link from "next/link";
+import React, { useState } from "react";
 import { dropdownContainer } from "./dropdown.module.css";
+import NavItem from "./NavItem";
 
-type NavDropdownProps = {
+interface IDropdownProps {
   address: string;
   text: string;
   children: any;
-};
+}
 
-const NavDropdown: React.FunctionComponent<NavDropdownProps> = (props) => {
+const Dropdown: React.FunctionComponent<IDropdownProps> = (props) => {
   const [closed, setClosed] = useState(true);
   const { address, text, children } = props;
 
@@ -49,4 +46,4 @@ const NavDropdown: React.FunctionComponent<NavDropdownProps> = (props) => {
   );
 };
 
-export default NavDropdown;
+export default Dropdown;

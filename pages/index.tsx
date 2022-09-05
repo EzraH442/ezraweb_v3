@@ -1,26 +1,25 @@
 import type { NextPage } from "next";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-
 import Image from "next/image";
 import { useState } from "react";
-import Header from "../components/header";
-import Footer from "../components/footer";
-import Banner from "../components/homepage/banner";
-
+import Body from "../components/containers/Body";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Banner from "../components/homepage/Banner";
+import Column from "../components/homepage/Column";
+import Columns from "../components/homepage/Columns";
+import ImageColumn from "../components/homepage/ImageColumn";
+import ImagePopup from "../components/homepage/ImagePopup";
+import TextButton from "../components/homepage/TextButon";
+import TextColumn from "../components/homepage/TextColumn";
 import {
   getAllPostFilenames,
   getPostByContext,
-  PostData,
   makePostContext,
 } from "../lib/api";
-import Body from "../components/containers/body";
-import Column from "../components/homepage/column";
-import TextButton from "../components/homepage/TextButon";
-import Columns from "../components/homepage/columns";
-import TextColumn from "../components/homepage/TextColumn";
-import ImageColumn from "../components/homepage/ImageColumn";
-import ImagePopup from "../components/homepage/ImagePopup";
+import { IPopupData } from "../types/popup";
+import { PostData } from "../types/post";
 
 export const getStaticProps: GetStaticProps = async () => {
   const latestPosts = [];
@@ -34,23 +33,14 @@ export const getStaticProps: GetStaticProps = async () => {
     );
   }
 
-  return {
-    props: {
-      posts: latestPosts,
-    },
-  };
+  return { props: { posts: latestPosts } };
 };
 
-type HomepageProps = {
+interface IHomepageProps {
   posts: PostData[];
-};
-
-export interface IPopupData {
-  src: string;
-  alt: string;
 }
 
-const Home: NextPage<HomepageProps> = ({ posts }) => {
+const Home: NextPage<IHomepageProps> = ({ posts }) => {
   const [popupOpen, setPopupOpen] = useState(false);
   const [popupData, setPopupData] = useState<IPopupData>({
     src: "/images/column2.jpg",

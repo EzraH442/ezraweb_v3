@@ -1,11 +1,12 @@
-import React from 'react';
-import { NextPage, GetStaticProps } from 'next';
-import Head from 'next/head';
+import { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
+import React from "react";
+import Layout from "../components/Layout";
+import { getAllPostSlugs } from "../lib/api";
 
-import { getAllPostSlugs } from '../lib/api';
-import Layout from '../components/Layout';
-
-type AboutPageProps = {latestSlug: string}
+interface IAboutPageProps {
+  latestSlug: string;
+}
 
 export const getStaticProps: GetStaticProps = async () => {
   const slugs = getAllPostSlugs();
@@ -16,7 +17,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const AboutPage: NextPage<AboutPageProps> = ({ latestSlug }) => (
+const AboutPage: NextPage<IAboutPageProps> = ({ latestSlug }) => (
   <>
     <Head>
       <title>About | EZ</title>
@@ -28,8 +29,8 @@ const AboutPage: NextPage<AboutPageProps> = ({ latestSlug }) => (
       <h1>About Me</h1>
       <hr />
       <p>
-        I&apos;m a grade 11 student at Western Canada High School! I&apos;m interested in
-        programming, and have made a variety of applications!
+        I&apos;m a grade 11 student at Western Canada High School! I&apos;m
+        interested in programming, and have made a variety of applications!
       </p>
     </Layout>
   </>

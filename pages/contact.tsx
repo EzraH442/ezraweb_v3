@@ -1,16 +1,17 @@
-import { NextPage, GetStaticProps } from "next";
-import { useRouter } from "next/router";
-import Head from "next/head";
-import { useState, useRef } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-
-import onVerifySucess from "../lib/email";
-import { getAllPostSlugs } from "../lib/api";
-
-import Layout from "../components/Layout";
+import { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useRef, useState } from "react";
 import Input from "../components/contact/Input";
+import Layout from "../components/Layout";
+import { getAllPostSlugs } from "../lib/api";
+import onVerifySucess from "../lib/email";
 
-type ContactPageProps = { latestSlug: string; sitekey: string };
+interface IContactPageProps {
+  latestSlug: string;
+  sitekey: string;
+}
 
 export const getStaticProps: GetStaticProps = async () => {
   const slugs = getAllPostSlugs();
@@ -22,7 +23,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const ContactPage: NextPage<ContactPageProps> = ({ latestSlug, sitekey }) => {
+const ContactPage: NextPage<IContactPageProps> = ({ latestSlug, sitekey }) => {
   const captchaRef = useRef<HCaptcha>(null);
 
   const [email, setEmail] = useState("");

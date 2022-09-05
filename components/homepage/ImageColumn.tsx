@@ -1,7 +1,7 @@
-import React from "react";
 import Image from "next/image";
-import Column from "./column";
-import { IPopupData } from "../../pages";
+import React from "react";
+import { IPopupData } from "../../types/popup";
+import Column from "./Column";
 
 interface IImageColumnProps {
   src: string;

@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import Link from "next/link";
+import { config } from "@fortawesome/fontawesome-svg-core";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import { siteName } from "../constants/site_constants";
-import NavLink from "./navigation/nav-link";
-import NavDropdown from "./navigation/nav-dropdown";
-import DropdownLink from "./navigation/dropdown-link";
+import Link from "next/link";
+import React, { useState } from "react";
+import { siteName } from "../constants/constants";
+import Dropdown from "./navigation/Dropdown";
+import DropdownLink from "./navigation/DropdownLink";
+import NavLink from "./navigation/NavLink";
 
-type HeaderProps = {
+interface IHeaderProps {
   latestSlug: string;
-};
+}
 
 config.autoAddCss = false;
 
-const Header: React.FunctionComponent<HeaderProps> = ({ latestSlug }) => {
+const Header: React.FunctionComponent<IHeaderProps> = ({ latestSlug }) => {
   const [collapsed, setCollapsed] = useState(true);
 
   return (
@@ -51,10 +51,10 @@ const Header: React.FunctionComponent<HeaderProps> = ({ latestSlug }) => {
         >
           <NavLink address="/" text="Home" />
           <NavLink address="/about" text="About" />
-          <NavDropdown address="/all-journals" text="Journals">
+          <Dropdown address="/all-journals" text="Journals">
             <DropdownLink address={`/posts/${latestSlug}`} text="Latest Post" />
             <DropdownLink address="/all-journals" text="All Posts" />
-          </NavDropdown>
+          </Dropdown>
           <NavLink address="/contact" text="Contact" />
         </nav>
         <div

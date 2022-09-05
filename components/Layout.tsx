@@ -1,12 +1,13 @@
 import React from "react";
+import Body from "./containers/Body";
+import Footer from "./Footer";
+import Header from "./Header";
 
-import Header from "./header";
-import Footer from "./footer";
-import Body from "./containers/body";
+interface ILayoutProps {
+  latestSlug: string;
+}
 
-type LayoutProps = { latestSlug: string };
-
-const Layout: React.FunctionComponent<LayoutProps> = ({
+const Layout: React.FunctionComponent<ILayoutProps> = ({
   latestSlug,
   children,
 }) => (
