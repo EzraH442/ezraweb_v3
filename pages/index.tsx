@@ -1,18 +1,21 @@
-import type { NextPage } from 'next';
-import { GetStaticProps } from 'next';
-import Head from 'next/head';
+import type { NextPage } from "next";
+import { GetStaticProps } from "next";
+import Head from "next/head";
 
-import Header from '../components/header';
-import Footer from '../components/footer';
-import Banner from '../components/homepage/banner';
+import Header from "../components/header";
+import Footer from "../components/footer";
+import Banner from "../components/homepage/banner";
 
-import ThreeColumns from '../components/homepage/triple-column';
-import PersonalInfo from '../components/homepage/personalinfo';
+import ThreeColumns from "../components/homepage/triple-column";
+import PersonalInfo from "../components/homepage/personalinfo";
 
 import {
-  getAllPostFilenames, getPostByContext, PostData, makePostContext,
-} from '../lib/api';
-import Body from '../components/containers/body';
+  getAllPostFilenames,
+  getPostByContext,
+  PostData,
+  makePostContext,
+} from "../lib/api";
+import Body from "../components/containers/body";
 
 export const getStaticProps: GetStaticProps = async () => {
   const latestPosts = [];
@@ -21,7 +24,9 @@ export const getStaticProps: GetStaticProps = async () => {
   for (let i = 0; i < 3; i++) {
     const context = makePostContext(i, postFilenames);
 
-    latestPosts.push(getPostByContext(context, ['title', 'date', 'headline', 'featuredImage']));
+    latestPosts.push(
+      getPostByContext(context, ["title", "date", "headline", "featuredImage"])
+    );
   }
 
   return {
@@ -33,7 +38,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 type HomepageProps = {
   posts: PostData[];
-}
+};
 
 const Home: NextPage<HomepageProps> = ({ posts }) => (
   <div>
@@ -49,38 +54,37 @@ const Home: NextPage<HomepageProps> = ({ posts }) => (
 
     <Body>
       <ThreeColumns
-        pos={1}
+        pos={0}
         title="Backpacking"
         text="I like to go backpacking!"
         images={{
           image1: {
-            imageUrl: '/images/column2.jpg',
-            altText: 'Backpacking across a large scree field',
+            imageUrl: "/images/column2.jpg",
+            altText: "Backpacking across a large scree field",
           },
           image2: {
-            imageUrl: '/images/right.jpg',
-            altText: 'Great views from the top of a mountain',
+            imageUrl: "/images/right.jpg",
+            altText: "Great views from the top of a mountain",
           },
         }}
       />
 
       <ThreeColumns
-        pos={3}
+        pos={1}
         title="Scrambling"
         text="I also love climbing mountains!"
         images={{
           image1: {
-            imageUrl: '/images/summit.jpg',
-            altText: 'Backpacking across a large scree field',
+            imageUrl: "/images/summit.jpg",
+            altText: "Backpacking across a large scree field",
           },
           image2: {
-            imageUrl: '/images/summit.jpg',
-            altText: 'Great views from the top of a mountain',
+            imageUrl: "/images/summit.jpg",
+            altText: "Great views from the top of a mountain",
           },
         }}
       />
       <PersonalInfo posts={posts} />
-
     </Body>
     <Footer />
   </div>

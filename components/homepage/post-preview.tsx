@@ -25,7 +25,7 @@ const PostPreview: React.FunctionComponent<PostPreviewProps> = ({
   link,
   image,
 }) => (
-  <div className={`${column} ${modifiedColumnHeight}`}>
+  <div className={`${column} ${modifiedColumnHeight} max-w-20`}>
     <h3>{title}</h3>
     <p className={postDate}>{date}</p>
     <p className={text}>{headline}</p>

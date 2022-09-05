@@ -1,46 +1,32 @@
 import React from "react";
 import Image from "next/image";
 
-import * as styles from "./triple-column.module.css";
-
-// .columns {
-//   display: flex;
-//   flex-flow: row wrap;
-//   align-content: center;
-//   justify-content: space-evenly;
-//   max-width: 100%;
-// }
-// .column {
-//   margin: 10px 20px;
-//   min-width: 0;
-//   min-height: 0;
-//   align-content: center;
-//   -moz-box-shadow: inset 0 0 10px #000000;
-//   -webkit-box-shadow: inset 0 0 10px #000000;
-//   box-shadow: 0 0 10px #000000;
-//   flex: 1 2 300px;
-// }
-// .text {
-//   padding: 20px;
-//   flex: 1 1 300px;
-// }
-// .column img {
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-// }
-
 interface ITextColumnProps {
   title: string;
   text: string;
 }
 
-const TextColumn: React.FC<ITextColumnProps> = ({ title, text }) => (
-  <div className={`${styles.column} ${styles.text}`}>
-    <h2>{title}</h2>
-    <hr />
-    <p>{text}</p>
+interface IColumnProps {
+  children: React.ReactNode;
+}
+
+const Column: React.FC<IColumnProps> = ({ children }) => (
+  <div
+    className="mx-3 my-5 min-w-0 content-center shadow-md shadow-black
+  basis-72 grow"
+  >
+    {children}
   </div>
+);
+
+const TextColumn: React.FC<ITextColumnProps> = ({ title, text }) => (
+  <Column>
+    <div className="p-4">
+      <h2>{title}</h2>
+      <hr />
+      <p>{text}</p>
+    </div>
+  </Column>
 );
 
 interface IImageColumnProps {
@@ -49,9 +35,9 @@ interface IImageColumnProps {
 }
 
 const ImageColumn: React.FC<IImageColumnProps> = ({ src, alt }) => (
-  <div className={styles.column}>
+  <Column>
     <Image src={src} alt={alt} layout="responsive" width={300} height={300} />
-  </div>
+  </Column>
 );
 
 type ImageType = {
@@ -60,7 +46,7 @@ type ImageType = {
 };
 
 type ThreeColumnsProps = {
-  pos: 1 | 2 | 3;
+  pos: number;
   title: string;
   text: string;
   images: {
@@ -90,7 +76,9 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({
   ];
 
   return (
-    <div>{components.map((e, index, arr) => arr[(index + pos - 1) % 3])}</div>
+    <div className="flex items-center justify-evenly max-w-full ">
+      {components.map((e, index, arr) => arr[(index + pos) % 3])}
+    </div>
   );
 };
 
