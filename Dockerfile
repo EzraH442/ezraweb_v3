@@ -5,8 +5,7 @@ RUN npm install --global pm2
 
 COPY ./package.json ./
 COPY ./yarn.lock ./
-RUN yarn install --production
-RUN yarn add --dev typescript @types/react @types/node
+RUN yarn install 
 COPY ./ ./
 RUN yarn build
 
