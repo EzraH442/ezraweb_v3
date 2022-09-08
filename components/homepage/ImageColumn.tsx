@@ -15,16 +15,15 @@ const ImageColumn: React.FC<IImageColumnProps> = ({
   onImageClick,
 }) => (
   <Column>
-    <span onClick={onImageClick && (() => onImageClick({ src, alt }))}>
-      <Image
-        src={src}
-        alt={alt}
-        layout="responsive"
-        width={600}
-        height={300}
-        objectFit="cover"
-      />
-    </span>
+    <Image
+      onClick={onImageClick && (() => onImageClick({ src, alt }))}
+      src={src}
+      alt={alt}
+      layout="responsive"
+      width={600}
+      height={300}
+      objectFit="cover"
+    />
   </Column>
 );
 

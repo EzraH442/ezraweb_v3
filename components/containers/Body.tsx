@@ -3,6 +3,7 @@ import { body } from "./body.module.css";
 
 interface IBodyProps {
   backgroundColor?: string;
+  children: React.ReactNode;
 }
 
 const Body: React.FunctionComponent<IBodyProps> = ({

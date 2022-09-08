@@ -116,22 +116,19 @@ const Home: NextPage<IHomepageProps> = ({ posts }) => {
                   <p className="mx-4 my-2">{post.metadata.date}</p>
                   <p className="basis-72 mx-3">{post.metadata.headline}</p>
                   {post.metadata.featuredImage && (
-                    <span
+                    <Image
+                      src={post.metadata.featuredImage}
                       onClick={() =>
                         onImageClick({
                           src: post.metadata.featuredImage!,
                           alt: "",
                         })
                       }
-                    >
-                      <Image
-                        src={post.metadata.featuredImage}
-                        alt=""
-                        width={300}
-                        height={200}
-                        layout="responsive"
-                      />
-                    </span>
+                      alt=""
+                      width={300}
+                      height={200}
+                      layout="responsive"
+                    />
                   )}
                   <div className="px-3 py-7">
                     <TextButton

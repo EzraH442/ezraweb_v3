@@ -6,7 +6,11 @@ class PageDocument extends Document {
       <Html>
         <Head>
           <link
-            href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Major+Mono+Display&family=Open+Sans:wght@300&family=Roboto&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300
+            &family=Major+Mono+Display
+            &family=Open+Sans:wght@300
+            &family=Roboto
+            &display=swap"
             rel="stylesheet"
           />
         </Head>

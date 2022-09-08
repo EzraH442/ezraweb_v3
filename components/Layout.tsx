@@ -5,6 +5,7 @@ import Header from "./Header";
 
 interface ILayoutProps {
   latestSlug: string;
+  children: React.ReactNode;
 }
 
 const Layout: React.FunctionComponent<ILayoutProps> = ({
