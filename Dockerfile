@@ -7,7 +7,7 @@ COPY ./package.json ./
 COPY ./yarn.lock ./
 RUN yarn install 
 COPY ./ ./
-RUN yarn build
+RUN SITEKEY=$SITEKEY POST_URL=$POST_URL yarn build
 
 EXPOSE 3000
 
