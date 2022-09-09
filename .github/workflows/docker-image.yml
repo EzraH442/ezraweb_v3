@@ -2,19 +2,17 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-    env: 
+    env:
       SITEKEY: ${{ secrets.SITEKEY }}
       POST_URL: ${{ secrets.SITE_URL }}
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build --build-arg SITEKEY=$SITEKEY --build-arg POST_URL=$POST_URL . --file Dockerfile --tag nextjs:$(date +%s)
