@@ -2,6 +2,9 @@ FROM node:alpine
 WORKDIR /usr/app
 
 RUN npm install --global pm2
+ARG SITEKEY
+ARG POST_URL
+ENV POST_URL=$POST_URL
 
 COPY ./package.json ./
 COPY ./yarn.lock ./
@@ -11,4 +14,4 @@ RUN SITEKEY=$SITEKEY POST_URL=$POST_URL yarn build
 
 EXPOSE 3000
 
-CMD [ "pm2-runtime", "yarn", "--", "start" ]
+CMD [ "pm2-runtime", "npm", "--", "start" ]
