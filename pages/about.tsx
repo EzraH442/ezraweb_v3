@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import React from "react";
+import Divider from "../components/Divider/Divider";
 import Layout from "../components/Layout";
 import { getAllPostSlugs } from "../lib/api";
 
@@ -27,7 +27,7 @@ const AboutPage: NextPage<IAboutPageProps> = ({ latestSlug }) => (
     </Head>
     <Layout latestSlug={latestSlug}>
       <h1>About Me</h1>
-      <hr />
+      <Divider />
       <p>
         I&apos;m a grade 11 student at Western Canada High School! I&apos;m
         interested in programming, and have made a variety of applications!

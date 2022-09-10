@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import React from "react";
+import Divider from "../components/Divider/Divider";
 import Layout from "../components/Layout";
 import { getAllPostSlugs } from "../lib/api";
 
@@ -27,7 +27,7 @@ const SucessPage: NextPage<ISucessPageProps> = ({ latestSlug }) => (
     </Head>
     <Layout latestSlug={latestSlug}>
       <h1>Thank you!</h1>
-      <hr />
+      <Divider />
       <p>Your form submission has been recieved. Thank you!.</p>
     </Layout>
   </>
