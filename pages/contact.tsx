@@ -4,6 +4,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import Input from "../components/contact/Input";
+import Divider from "../components/Divider/Divider";
 import Layout from "../components/Layout";
 import { getAllPostSlugs } from "../lib/api";
 import onVerifySucess from "../lib/email";
@@ -60,8 +61,8 @@ const ContactPage: NextPage<IContactPageProps> = ({ latestSlug, sitekey }) => {
       </Head>
       <Layout latestSlug={latestSlug}>
         <h1>Contact</h1>
-        <div className="py-2 pb-4">
-          <hr className="border-black" />
+        <div className="pb-2">
+          <Divider />
         </div>
         <h2>Send me an email below</h2>
         <form className="p-3">

@@ -1,7 +1,7 @@
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import React from "react";
+import Divider from "../components/Divider/Divider";
 import Layout from "../components/Layout";
 import { getAllPosts } from "../lib/api";
 import * as styles from "../styles/journals.module.css";
@@ -27,11 +27,9 @@ const AllJournals: NextPage<IAllJournalProps> = ({
     </Head>
     <Layout latestSlug={posts[0].context.slug}>
       <h1>All Posts</h1>
-      <hr />
+      <Divider />
       <h2 className={styles.postCount}>
-        You can find all
-        {` ${posts.length} `}
-        posts below:
+        {`You can find all ${posts.length} posts below:`}
       </h2>
       <div className={styles.links}>
         {posts.map((post: PostData) => (
@@ -41,14 +39,9 @@ const AllJournals: NextPage<IAllJournalProps> = ({
             passHref
           >
             <div className={styles.link}>
-              <h3>
-                {post.metadata.title}
-                {" - "}
-                {post.metadata.date}
-              </h3>
-
+              <h3>{`${post.metadata.title} - ${post.metadata.date} `}</h3>
               <p>{post.metadata.headline}</p>
-              <hr />
+              <Divider />
             </div>
           </Link>
         ))}

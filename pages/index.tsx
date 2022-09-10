@@ -4,6 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import Body from "../components/containers/Body";
+import Divider from "../components/Divider/Divider";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Banner from "../components/homepage/Banner";
@@ -106,7 +107,7 @@ const Home: NextPage<IHomepageProps> = ({ posts }) => {
             pretty busy. You can read about my life here.
           </p>
           <div className="w-11/12">
-            <hr className="border-black" />
+            <Divider />
           </div>
           <Columns>
             {posts.map((post) => (

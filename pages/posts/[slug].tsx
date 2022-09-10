@@ -7,6 +7,7 @@ import { ParsedUrlQuery } from "querystring";
 import { getAllPostSlugs, getPostBySlug } from "../../lib/api";
 import markdownToHtml from "../../lib/markdownToHtml";
 
+import Divider from "../../components/Divider/Divider";
 import Layout from "../../components/Layout";
 import { PostData } from "../../types/post";
 import * as styles from "./blog-post.module.css";
@@ -68,7 +69,7 @@ const Post: NextPage<PostPageProps> = ({ post, latestSlug }) => (
     <Layout latestSlug={latestSlug}>
       <h1 className={styles.title}>{post.post.metadata.title}</h1>
       <h2 className={styles.date}>{post.post.metadata.date}</h2>
-      <hr />
+      <Divider />
       {post.post.metadata.featuredImage && (
         <Image
           src={post.post.metadata.featuredImage}
