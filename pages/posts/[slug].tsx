@@ -85,14 +85,8 @@ const Post: NextPage<PostPageProps> = ({ post, latestSlug }) => (
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
       <div className={styles.links}>
-        <a href={post.post.context.previousSlug}>
-          {"<<<"}
-          &nbsp; Previous Post
-        </a>
-        <a href={post.post.context.nextSlug}>
-          Next Post &nbsp;
-          {">>>"}
-        </a>
+        <a href={post.post.context.previousSlug}>{"<<< \xa0 Previous Post"}</a>
+        <a href={post.post.context.nextSlug}>{"Next Post \xa0 >>>"}</a>
       </div>
     </Layout>
   </div>

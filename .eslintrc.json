@@ -26,9 +26,9 @@
       }
     ],
     "arrow-body-style": ["off"],
-    "max-len": ["warn", { "code": 80 }],
+    "max-len": ["off", { "code": 80 }],
     "react/require-default-props": ["off"],
-    "no-unused-vars": ["warn"],
+    "no-unused-vars": ["off"],
     "react/jsx-props-no-spreading": ["warn"]
   }
 }
