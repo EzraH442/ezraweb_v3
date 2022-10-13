@@ -1,9 +1,7 @@
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { GetStaticProps, NextPage } from "next";
 import { useState } from "react";
 import Divider from "../components/Divider/Divider";
-import Flashcard from "../components/Flashcards/Flashcard";
+import FlashcardArea from "../components/Flashcards/FlashcardArea";
 import GroupSelector from "../components/Flashcards/GroupSelector";
 import getFlashcardData from "../lib/flashcardData";
 import { FlashcardData } from "../types/flashcards";
@@ -22,17 +20,11 @@ const FlashcardsPage: NextPage<IFlashcardPageProps> = ({ flashcardData }) => {
     new Set(),
   );
 
-  const [wordIndex, setWordIndex] = useState(0);
-
   const w = flashcardData
     .filter(({ groupName }) => selectedGroupNames.has(groupName))
     .flatMap(({ words }) => {
       return Object.entries(words);
     });
-
-  const changeIndex = (inc: number) => {
-    setWordIndex((wordIndex + inc) % w.length);
-  };
 
   const onSelectionChanged = (groupNames: Set<string>) => {
     setSelectedGroupNames(groupNames);
@@ -48,24 +40,7 @@ const FlashcardsPage: NextPage<IFlashcardPageProps> = ({ flashcardData }) => {
       <Divider />
       <div style={{ width: 340 }}>
         {selectedGroupNames.size > 0 ? (
-          <div>
-            <p className="text-center">{`${wordIndex + 1} / ${w.length}`}</p>
-            <div className="pb-2">
-              <Flashcard first={w[wordIndex][0]} second={w[wordIndex][1]} />
-            </div>
-            <div className="flex justify-between">
-              <FontAwesomeIcon
-                icon={faArrowLeft}
-                onClick={() => changeIndex(-1)}
-                size="2x"
-              />
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                onClick={() => changeIndex(1)}
-                size="2x"
-              />
-            </div>
-          </div>
+          <FlashcardArea words={w} key={JSON.stringify(w)} />
         ) : (
           <p>Please select some words</p>
         )}
