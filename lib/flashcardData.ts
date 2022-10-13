@@ -19,10 +19,8 @@ const getFlashcardData = () => {
       });
     });
 
-    console.log(data);
     return data;
   } catch (e) {
-    console.log(e);
     return [];
   }
 };
