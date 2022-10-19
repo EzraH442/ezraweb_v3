@@ -2,14 +2,13 @@ import fs from "fs";
 import yaml from "js-yaml";
 import { join } from "path";
 import { FlashcardData } from "../types/flashcards";
+import { allFilenamesInDir } from "./helpers";
 
-const postsDirectory = join(process.cwd(), "_flashcards");
+const FC_DIR = join(process.cwd(), "_flashcards");
 
-const getFlashcardData = () => {
+const getFlashcardDataFromFile = (fileName: string) => {
   try {
-    const doc = yaml.load(
-      fs.readFileSync(`${postsDirectory}/vocab.yml`, "utf-8"),
-    );
+    const doc = yaml.load(fs.readFileSync(`${FC_DIR}/${fileName}`, "utf-8"));
 
     const data: FlashcardData = [];
     Object.entries(doc as any).forEach(([k, v]) => {
@@ -23,6 +22,14 @@ const getFlashcardData = () => {
   } catch (e) {
     return [];
   }
+};
+
+const getFlashcardData = () => {
+  const filesNames = allFilenamesInDir(FC_DIR);
+
+  const data = filesNames.map((file) => getFlashcardDataFromFile(file));
+
+  return data;
 };
 
 export default getFlashcardData;

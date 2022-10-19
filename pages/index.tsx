@@ -14,17 +14,14 @@ import ImageColumn from "../components/homepage/ImageColumn";
 import ImagePopup from "../components/homepage/ImagePopup";
 import TextButton from "../components/homepage/TextButon";
 import TextColumn from "../components/homepage/TextColumn";
-import {
-  getAllPostFilenames,
-  getPostByContext,
-  makePostContext,
-} from "../lib/api";
+import { getPostByContext, makePostContext, POSTS_DIR } from "../lib/api";
+import { allSortedFilenamesInDir } from "../lib/helpers";
 import { IPopupData } from "../types/popup";
 import { PostData } from "../types/post";
 
 export const getStaticProps: GetStaticProps = async () => {
   const latestPosts = [];
-  const postFilenames = getAllPostFilenames();
+  const postFilenames = allSortedFilenamesInDir(POSTS_DIR);
 
   for (let i = 0; i < 3; i++) {
     const context = makePostContext(i, postFilenames);

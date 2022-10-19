@@ -2,22 +2,14 @@ import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 import { PostContext, PostData, PostField } from "../types/post";
+import { allSortedFilenamesInDir, removeMarkdownExtension } from "./helpers";
 
-const postsDirectory = join(process.cwd(), "_posts");
+export const POSTS_DIR = join(process.cwd(), "_posts");
 
-function removeMarkdownExtension(s: string): string {
-  return s.replace(/\.md$/, "");
-}
-
-export function getAllPostFilenames() {
-  return fs.readdirSync(postsDirectory).sort((a, b) => {
-    if (a < b) return 1;
-    if (a > b) return -1;
-    return 0;
-  });
-}
 export function getAllPostSlugs() {
-  return getAllPostFilenames().map((s) => removeMarkdownExtension(s));
+  return allSortedFilenamesInDir(POSTS_DIR).map((s) =>
+    removeMarkdownExtension(s),
+  );
 }
 
 export function makePostContext(i: number, fileNames: string[]): PostContext {
@@ -42,7 +34,7 @@ export function getPostByContext(
   const realSlug = removeMarkdownExtension(context.slug);
   const realNextSlug = removeMarkdownExtension(context.nextSlug);
   const realPreviousSlug = removeMarkdownExtension(context.previousSlug);
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
+  const fullPath = join(POSTS_DIR, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
@@ -68,14 +60,14 @@ export function getPostByContext(
 }
 
 export function getPostBySlug(slug: string, fields: PostField[]) {
-  const slugs = getAllPostFilenames();
+  const slugs = allSortedFilenamesInDir(POSTS_DIR);
   const index = slugs.indexOf(`${slug}.md`);
 
   return getPostByContext(makePostContext(index, slugs), fields);
 }
 
 export function getAllPosts(fields: PostField[] = []) {
-  const slugs = getAllPostFilenames();
+  const slugs = allSortedFilenamesInDir(POSTS_DIR);
   fields.push("date");
 
   const posts: PostData[] = [];
