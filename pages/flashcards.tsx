@@ -3,11 +3,15 @@ import { useState } from "react";
 import Divider from "../components/Divider/Divider";
 import FlashcardArea from "../components/Flashcards/FlashcardArea";
 import GroupSelector from "../components/Flashcards/GroupSelector";
+import Tabs from "../components/Flashcards/Tabs/Tabs";
 import getFlashcardData from "../lib/flashcardData";
 import { FlashcardData } from "../types/flashcards";
 
 interface IFlashcardPageProps {
-  flashcardData: FlashcardData;
+  flashcardData: {
+    fileName: string;
+    data: FlashcardData;
+  }[];
 }
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -20,23 +24,33 @@ const FlashcardsPage: NextPage<IFlashcardPageProps> = ({ flashcardData }) => {
     new Set(),
   );
 
+  const onSelectionChanged = (groupNames: Set<string>) => {
+    setSelectedGroupNames(groupNames);
+  };
+
+  const tabData = flashcardData.map((fcData) => {
+    return {
+      id: fcData.fileName,
+      component: (
+        <GroupSelector
+          flashcardData={fcData.data}
+          onChange={onSelectionChanged}
+        />
+      ),
+    };
+  });
+
   const w = flashcardData
+    .flatMap((v) => v.data)
     .filter(({ groupName }) => selectedGroupNames.has(groupName))
     .flatMap(({ words }) => {
       return Object.entries(words);
     });
 
-  const onSelectionChanged = (groupNames: Set<string>) => {
-    setSelectedGroupNames(groupNames);
-  };
-
   return (
     <div className="p-12">
       <h1>Flashcards</h1>
-      <GroupSelector
-        flashcardData={flashcardData}
-        onChange={onSelectionChanged}
-      />
+      <Tabs tabData={tabData} />
       <Divider />
       <div style={{ width: 340 }}>
         {selectedGroupNames.size > 0 ? (
