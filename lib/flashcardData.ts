@@ -27,7 +27,12 @@ const getFlashcardDataFromFile = (fileName: string) => {
 const getFlashcardData = () => {
   const filesNames = allFilenamesInDir(FC_DIR);
 
-  const data = filesNames.map((file) => getFlashcardDataFromFile(file));
+  const data = filesNames.map((file) => {
+    return {
+      fileName: file,
+      data: getFlashcardDataFromFile(file),
+    };
+  });
 
   return data;
 };
