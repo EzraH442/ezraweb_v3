@@ -14,10 +14,10 @@ const Tabs: React.FC<ITabsProps> = ({ tabData }) => {
 
   return (
     <div>
-      <div className="flex items-center">
+      <div className="inline-flex items-center py-2 flex-wrap">
         {tabData.map(({ id }) => {
           return (
-            <div key={id} className="px-2">
+            <div key={id} className="px-2 py-2">
               <Button
                 label={id}
                 onClick={() => setSelectedTab(id)}

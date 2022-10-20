@@ -1,9 +1,15 @@
+import {
+  faTriangleExclamation,
+  faWarning,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { GetStaticProps, NextPage } from "next";
 import { useState } from "react";
 import Divider from "../components/Divider/Divider";
 import FlashcardArea from "../components/Flashcards/FlashcardArea";
 import GroupSelector from "../components/Flashcards/GroupSelector";
 import Tabs from "../components/Flashcards/Tabs/Tabs";
+import Warning from "../components/Flashcards/Warning";
 import getFlashcardData from "../lib/flashcardData";
 import { FlashcardData } from "../types/flashcards";
 
@@ -44,19 +50,20 @@ const FlashcardsPage: NextPage<IFlashcardPageProps> = ({ flashcardData }) => {
     .flatMap((v) => v.data)
     .filter(({ groupName }) => selectedGroupNames.has(groupName))
     .flatMap(({ words }) => {
-      return Object.entries(words);
+      return words ? Object.entries(words) : [];
     });
 
   return (
     <div className="p-12">
-      <h1>Flashcards</h1>
+      <h1 className="text-3xl">Flashcards</h1>
+      <Divider />
       <Tabs tabData={tabData} />
       <Divider />
       <div style={{ width: 340 }}>
-        {selectedGroupNames.size > 0 ? (
+        {w.length > 0 ? (
           <FlashcardArea words={w} key={JSON.stringify(w)} />
         ) : (
-          <p>Please select some words</p>
+          <Warning text="Please select some words to continue" />
         )}
       </div>
     </div>
