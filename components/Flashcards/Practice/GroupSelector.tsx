@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactTooltip from "react-tooltip";
-import { FlashcardData } from "../../types/flashcards";
+import { FlashcardData } from "../../../types/flashcards";
 
 interface IGroupSelectorProps {
   flashcardData: FlashcardData;

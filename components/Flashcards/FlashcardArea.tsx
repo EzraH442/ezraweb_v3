@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import Flashcard from "./Flashcard";
+import Flashcard from "./Practice/Flashcard";
 
 interface IFlashcardAreaProps {
   words: [string, string][];

@@ -4,7 +4,7 @@ import { AgGridReact } from "ag-grid-react";
 import { CellValueChangedEvent, ColDef } from "ag-grid-community";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
-import Button from "./Button/Button";
+import Button from "../Button/Button";
 
 interface IEditPageProps {
   data: [string, string][];
@@ -31,7 +31,7 @@ const columnTypes: Record<string, ColDef> = {
   },
 };
 
-const Edit: React.FC<IEditPageProps> = ({ data }) => {
+const EditGrid: React.FC<IEditPageProps> = ({ data }) => {
   const gridRef = useRef<AgGridReact>(null);
 
   const [columnDefs, setColumnDefs] = useState<ColDef[]>([
@@ -124,4 +124,4 @@ const Edit: React.FC<IEditPageProps> = ({ data }) => {
   );
 };
 
-export default Edit;
+export default EditGrid;

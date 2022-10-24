@@ -2,7 +2,7 @@ import { GetStaticProps, NextPage } from "next";
 import { useState } from "react";
 import Divider from "../../components/Divider/Divider";
 import FlashcardArea from "../../components/Flashcards/FlashcardArea";
-import GroupSelector from "../../components/Flashcards/GroupSelector";
+import GroupSelector from "../../components/Flashcards/Practice/GroupSelector";
 import Tabs from "../../components/Flashcards/Tabs/Tabs";
 import getFlashcardData from "../../lib/flashcardData";
 import { FlashcardData } from "../../types/flashcards";
