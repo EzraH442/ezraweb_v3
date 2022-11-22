@@ -1,8 +1,8 @@
-const headers = require('./headers');
+const headers = require("./headers");
 
 /** @type {import('next').NextConfig} */
 module.exports = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -10,7 +10,7 @@ module.exports = {
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers,
       },
     ];
