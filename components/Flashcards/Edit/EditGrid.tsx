@@ -49,8 +49,6 @@ const EditGrid: React.FC<IEditGridProps> = ({ data, onSave }) => {
     { field: "second", type: "wordColumn" },
   ]);
 
-  const [words, setWords] = useState<Wordpair[]>([...data]);
-
   const triggerSave = () => {
     const saveData: Wordpair[] = [];
 
@@ -75,7 +73,7 @@ const EditGrid: React.FC<IEditGridProps> = ({ data, onSave }) => {
   const onCellValueChanged = (event: CellValueChangedEvent) => {
     if (event.oldValue === event.newValue) return;
 
-    const col = event.column.getColDef().field!;
+    const col = event.colDef.field;
     const id = `${event.node.data.uuid}-${col}`;
 
     // Edit cell for the first time, store original value
@@ -118,7 +116,7 @@ const EditGrid: React.FC<IEditGridProps> = ({ data, onSave }) => {
         }}
       >
         <AgGridReact
-          rowData={words}
+          rowData={data}
           columnDefs={columnDefs}
           columnTypes={columnTypes}
           pagination
