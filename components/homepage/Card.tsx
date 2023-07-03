@@ -1,8 +1,8 @@
 import { faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import Column from "./Column";
 import Link from "next/link";
+import Column from "./Column";
 
 interface ICardProps {
   label: string;
