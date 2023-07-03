@@ -2,17 +2,11 @@ import React from "react";
 import { body } from "./body.module.css";
 
 interface IBodyProps {
-  backgroundColor?: string;
   children: React.ReactNode;
 }
 
-const Body: React.FunctionComponent<IBodyProps> = ({
-  backgroundColor = "#cfe8a3",
-  children,
-}) => (
-  <div style={{ backgroundColor }} className={body}>
-    {children}
-  </div>
+const Body: React.FunctionComponent<IBodyProps> = ({ children }) => (
+  <div className={`${body} text-yellow-300 bg-gray-dark`}>{children}</div>
 );
 
 export default Body;

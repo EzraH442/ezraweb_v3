@@ -1,23 +1,9 @@
-import { GetStaticProps, NextPage } from "next";
+import { NextPage } from "next";
 import Head from "next/head";
 import Divider from "../components/Divider/Divider";
 import Layout from "../components/Layout";
-import { getAllPostSlugs } from "../lib/api";
 
-interface IAboutPageProps {
-  latestSlug: string;
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-  const slugs = getAllPostSlugs();
-  return {
-    props: {
-      latestSlug: slugs[0],
-    },
-  };
-};
-
-const AboutPage: NextPage<IAboutPageProps> = ({ latestSlug }) => (
+const AboutPage: NextPage = () => (
   <>
     <Head>
       <title>About | EZ</title>
@@ -25,7 +11,7 @@ const AboutPage: NextPage<IAboutPageProps> = ({ latestSlug }) => (
       <link rel="icon" href="/images/favicon.ico" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <Layout latestSlug={latestSlug}>
+    <Layout>
       <h1>About Me</h1>
       <Divider />
       <p>

@@ -4,16 +4,12 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 interface ILayoutProps {
-  latestSlug: string;
   children: React.ReactNode;
 }
 
-const Layout: React.FunctionComponent<ILayoutProps> = ({
-  latestSlug,
-  children,
-}) => (
+const Layout: React.FunctionComponent<ILayoutProps> = ({ children }) => (
   <>
-    <Header latestSlug={latestSlug} />
+    <Header />
     <Body>{children}</Body>
     <Footer />
   </>

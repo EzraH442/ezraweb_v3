@@ -6,12 +6,7 @@ interface IColumnProps {
 }
 
 const Column: React.FC<IColumnProps> = ({ children }) => (
-  <div
-    className="mx-3 my-5 min-w-0 content-center shadow-md shadow-black
-  basis-72 grow h-auto"
-  >
-    {children}
-  </div>
+  <div className="mx-3 my-5 shadow-md shadow-purple-400">{children}</div>
 );
 
 export default Column;

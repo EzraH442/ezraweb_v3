@@ -4,7 +4,7 @@ interface IDividerProps {}
 
 const Divider: React.FunctionComponent<IDividerProps> = () => (
   <div className="py-2">
-    <hr className="divide-black border-black" />
+    <hr className="border-yellow-300 divide-yellow-300" />
   </div>
 );
 

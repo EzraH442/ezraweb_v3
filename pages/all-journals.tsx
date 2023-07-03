@@ -25,7 +25,7 @@ const AllJournals: NextPage<IAllJournalProps> = ({
       <link rel="icon" href="/favicon.ico" />
       <meta name="description" content="All Of Ezra's Journal Posts" />
     </Head>
-    <Layout latestSlug={posts[0].context.slug}>
+    <Layout>
       <h1>All Posts</h1>
       <Divider />
       <h2 className={styles.postCount}>

@@ -10,7 +10,6 @@ import { getAllPostSlugs } from "../lib/api";
 import onVerifySucess from "../lib/email";
 
 interface IContactPageProps {
-  latestSlug: string;
   sitekey: string;
 }
 
@@ -18,13 +17,12 @@ export const getStaticProps: GetStaticProps = async () => {
   const slugs = getAllPostSlugs();
   return {
     props: {
-      latestSlug: slugs[0],
       sitekey: process.env.SITEKEY!,
     },
   };
 };
 
-const ContactPage: NextPage<IContactPageProps> = ({ latestSlug, sitekey }) => {
+const ContactPage: NextPage<IContactPageProps> = ({ sitekey }) => {
   const captchaRef = useRef<HCaptcha>(null);
 
   const [email, setEmail] = useState("");
@@ -59,7 +57,7 @@ const ContactPage: NextPage<IContactPageProps> = ({ latestSlug, sitekey }) => {
         <link rel="icon" href="/images/favicon.ico" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Layout latestSlug={latestSlug}>
+      <Layout>
         <h1>Contact</h1>
         <div className="pb-2">
           <Divider />
