@@ -1,23 +1,40 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import Divider from "../components/Divider/Divider";
 import Layout from "../components/Layout";
 
 const AboutPage: NextPage = () => (
   <>
     <Head>
-      <title>About | EZ</title>
+      <title>man ezrahuang</title>
       <meta name="description" content="About Me" />
       <link rel="icon" href="/images/favicon.ico" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <Layout>
-      <h1>About Me</h1>
-      <Divider />
-      <p>
-        I&apos;m a grade 11 student at Western Canada High School! I&apos;m
-        interested in programming, and have made a variety of applications!
-      </p>
+      <pre className="">{`
+      EZRAHUANG
+
+      NAME
+          ezra - statistics and comp. sci. student at mcgill and aspiring engineer
+
+      SYNOPSIS
+          ezra [b.sc. statistics and computer science at mcgill]
+
+      DESCRIPTION
+          ezra is a joint statistics and computer science major student at McGill.
+          ezra was born in Calgary, AB, and currently lives in Montreal. Outside, 
+          ezra enjoys scrambling, skiing, and backpacking, and inside, he enjoys
+          listening to phish, ripping off cloud services' free tier, and playing 
+          piano. ezra is an advocate for free science, free software, and free
+          information.
+
+      SEE ALSO
+          leo zhang
+          random 121
+          lithium engineer
+
+      EZRAHUANG                              July 2023                           EZRAHUANG
+      `}</pre>
     </Layout>
   </>
 );

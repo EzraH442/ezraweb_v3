@@ -49,15 +49,15 @@ const FlashcardsPage: NextPage<IFlashcardPageProps> = ({ flashcardData }) => {
 
   return (
     <div className="p-12">
-      <h1 className="text-3xl">Flashcards</h1>
-      <Divider />
+      <h1 className="text-3xl">Practice</h1>
+      <Divider color="emerald-600" />
       <Tabs tabData={tabData} />
-      <Divider />
+      <Divider color="emerald-600" />
       <div style={{ width: 340 }}>
         {w.length > 0 ? (
           <FlashcardArea words={w} key={JSON.stringify(w)} />
         ) : (
-          <Warning text="Please select some words to continue" />
+          <p> No groups selected - please select some words to continue </p>
         )}
       </div>
     </div>

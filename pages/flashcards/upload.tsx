@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { GetStaticProps, NextPage } from "next";
 import { FlashcardData } from "../../types/flashcards";
 import getFlashcardData from "../../lib/flashcardData";
@@ -14,17 +14,14 @@ export const getStaticProps: GetStaticProps = async () => {
   const flashcardData = getFlashcardData();
   return { props: { flashcardData } };
 };
-interface UploadPageProps {
+interface UploadPageProps {}
 
-}
-
-const UploadPage: NextPage<UploadPageProps> = ({}) => {
-
+const UploadPage: NextPage<UploadPageProps> = () => {
   return (
     <div>
-
+      <p>coming soon</p>
     </div>
   );
-}
+};
 
-export default UploadPage
+export default UploadPage;

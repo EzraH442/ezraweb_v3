@@ -14,7 +14,6 @@ interface IContactPageProps {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const slugs = getAllPostSlugs();
   return {
     props: {
       sitekey: process.env.SITEKEY!,

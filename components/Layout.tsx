@@ -1,5 +1,4 @@
 import React from "react";
-import Body from "./containers/Body";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -8,11 +7,11 @@ interface ILayoutProps {
 }
 
 const Layout: React.FunctionComponent<ILayoutProps> = ({ children }) => (
-  <>
+  <div className="min-h-screen text-yellow-300">
     <Header />
-    <Body>{children}</Body>
+    <div className="bg-gray-dark min-h-[calc(100vh-192px)]">{children}</div>
     <Footer />
-  </>
+  </div>
 );
 
 export default Layout;

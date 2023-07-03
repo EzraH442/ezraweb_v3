@@ -1,10 +1,16 @@
 import React from "react";
 
-interface IDividerProps {}
+interface IDividerProps {
+  color?: string;
+}
 
-const Divider: React.FunctionComponent<IDividerProps> = () => (
+const Divider: React.FunctionComponent<IDividerProps> = ({ color }) => (
   <div className="py-2">
-    <hr className="border-yellow-300 divide-yellow-300" />
+    <hr
+      className={`border-${color ?? "yellow-300"} divide-${
+        color ?? "yellow-300"
+      }`}
+    />
   </div>
 );
 

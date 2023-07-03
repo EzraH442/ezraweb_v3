@@ -28,9 +28,9 @@ const Banner: React.FunctionComponent<{}> = () => {
     <div className="relative">
       <div className="brightness-50">
         <Image
-          src="/images/wp2123812.jpg"
+          src="/images/laputa.jpg"
           className="w-full"
-          alt="Mountain Scenery"
+          alt="An Image of Laputa, from the film <i>Castle in the Sky</i>"
           layout="responsive"
           width={1000}
           height={600}
