@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React, { useEffect, useState, useCallback } from "react";
 
 const getSize = (size: number) => {
