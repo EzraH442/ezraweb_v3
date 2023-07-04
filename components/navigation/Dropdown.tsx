@@ -25,7 +25,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps> = (props) => {
       }}
     >
       <NavItem>
-        <Link href={address}>{text}</Link>
+        <Link href={address} legacyBehavior>{text}</Link>
         &nbsp;&nbsp;&nbsp;
         <div className="tb:hidden">
           <FontAwesomeIcon

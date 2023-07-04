@@ -12,7 +12,7 @@ interface ICardProps {
 const Card: React.FC<ICardProps> = ({ label, href }) => (
   <Column>
     <div className="px-4 py-4">
-      <Link href={href} passHref>
+      <Link href={href} passHref legacyBehavior>
         <p className="font-serif hover:decoration-cyan-300 hover:underline">
           {label}
           <FontAwesomeIcon

@@ -11,7 +11,7 @@ const DropdownLink: React.FunctionComponent<IDropdownLinkProps> = ({
   text,
 }) => (
   <div className="text-white font-light font-sans p-2">
-    <Link href={address}>{text}</Link>
+    <Link href={address} legacyBehavior>{text}</Link>
   </div>
 );
 

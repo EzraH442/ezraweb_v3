@@ -21,7 +21,7 @@ const BlogCard: React.FC<IBlogCardProps> = ({
   href,
 }) => (
   <Column>
-    <Link href={href} passHref>
+    <Link href={href} passHref legacyBehavior>
       <div className="px-4 py-4 hover:underline decoration-cyan-300">
         <h3 className="text-2xl">{title}</h3>
         <p className="mx-4 my-2">

@@ -37,7 +37,7 @@ const AllJournals: NextPage<IAllJournalProps> = ({
             href={`/posts/${post.context.slug}`}
             key={post.metadata.date}
             passHref
-          >
+            legacyBehavior>
             <div className={styles.link}>
               <h3>{`${post.metadata.title} - ${post.metadata.date} `}</h3>
               <p>{post.metadata.headline}</p>

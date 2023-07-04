@@ -9,7 +9,7 @@ const Header: React.FunctionComponent = () => {
   return (
     <div className="bg-gray-dark w-full">
       <div className="flex tb:justify-start tb:h-24 w-full items-center">
-        <Link href="/" passHref>
+        <Link href="/" passHref legacyBehavior>
           <p
             className="cursor-pointer font-monospace
             text-4xl tb:text-3xl text-amber-300 my-auto mx-8"
