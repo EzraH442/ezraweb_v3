@@ -5,7 +5,7 @@ import Divider from "../components/Divider/Divider";
 import Layout from "../components/Layout";
 import { getAllPosts } from "../lib/api";
 import { PostData } from "../types/post";
-import { comfortaa } from "./fonts";
+import { comfortaa } from "../constants/fonts";
 
 interface IAllJournalProps {
   posts: PostData[];

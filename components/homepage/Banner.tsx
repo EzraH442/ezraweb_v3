@@ -1,6 +1,6 @@
 import Image from "next/legacy/image";
 import React, { useEffect, useState, useCallback } from "react";
-import { consolas } from "../../pages/fonts";
+import { consolas } from "../../constants/fonts";
 
 const getSize = (size: number) => {
   return size > 8 ? size : 8;
