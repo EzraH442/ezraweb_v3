@@ -29,6 +29,7 @@
     "max-len": ["off", { "code": 80 }],
     "react/require-default-props": ["off"],
     "no-unused-vars": ["off"],
-    "react/jsx-props-no-spreading": ["warn"]
+    "react/jsx-props-no-spreading": ["warn"],
+    "camelcase": ["warn"]
   }
 }
