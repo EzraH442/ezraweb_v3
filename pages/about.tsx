@@ -11,11 +11,11 @@ const AboutPage: NextPage = () => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <Layout>
-      <pre className="">{`
+      <pre className=" overflow-scroll">{`
       EZRAHUANG
 
       NAME
-          ezra - statistics and comp. sci. student at mcgill and aspiring engineer
+          ezra - statistics and comp. sci. student at mcgill
 
       SYNOPSIS
           ezra [b.sc. statistics and computer science at mcgill]

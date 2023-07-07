@@ -49,7 +49,9 @@ const Home: NextPage<IHomepageProps> = ({ posts }) => {
         <Banner />
 
         <div className="flex flex-col items-center pt-9">
-          <h2 className="font-raleway text-2xl mx-10 mb-3">the tar pit</h2>
+          <h2 className="font-raleway text-2xl mx-10 mb-3 font-thin">
+            the tar pit
+          </h2>
           <div className="w-36">
             <Divider />
           </div>
@@ -58,7 +60,7 @@ const Home: NextPage<IHomepageProps> = ({ posts }) => {
             <Card label="French flashcards" href="/flashcards" />
           </div>
           <div className="mt-12" />
-          <h2 className="font-raleway text-2xl mx-10 mb-3">blog</h2>
+          <h2 className="font-raleway text-2xl mx-10 mb-3 font-thin">blog</h2>
           <div className="w-36">
             <Divider />
           </div>

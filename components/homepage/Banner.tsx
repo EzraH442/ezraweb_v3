@@ -1,5 +1,6 @@
 import Image from "next/legacy/image";
 import React, { useEffect, useState, useCallback } from "react";
+import { consolas } from "../../pages/fonts";
 
 const getSize = (size: number) => {
   return size > 8 ? size : 8;
@@ -37,8 +38,8 @@ const Banner: React.FunctionComponent<{}> = () => {
         />
       </div>
       <pre
-        className="absolute w-4/6 bg-opacity-40 bg-black text-white px-4 py-8
-    top-16 font-light"
+        className={`absolute w-4/6 bg-opacity-40 bg-black text-white px-4 py-8
+    top-16 font-light ${consolas.className}`}
         style={{ fontSize: size }}
       >{`
 " The programmer, like the poet, works only slightly re-

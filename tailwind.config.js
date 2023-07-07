@@ -17,11 +17,6 @@ module.exports = {
       screens: {
         tb: "960px",
       },
-      fontFamily: {
-        sans: ["Open Sans", "sans-serif"],
-        raleway: ["Raleway", "sans-serif"],
-        monospace: ["Major Mono Display", "monospace"],
-      },
     },
   },
   plugins: [],
