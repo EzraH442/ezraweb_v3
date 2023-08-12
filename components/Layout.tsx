@@ -4,12 +4,18 @@ import Header from "./Header";
 
 interface ILayoutProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-const Layout: React.FunctionComponent<ILayoutProps> = ({ children }) => (
-  <div className="min-h-screen text-yellow-300">
+const Layout: React.FunctionComponent<ILayoutProps> = ({
+  children,
+  className,
+}) => (
+  <div className="min-h-screen text-primary bg-background">
     <Header />
-    <div className="bg-gray-dark min-h-[calc(100vh-192px)]">{children}</div>
+    <div className={`min-h-[calc(100vh-192px)] ${className ?? ""}`}>
+      {children}
+    </div>
     <Footer />
   </div>
 );

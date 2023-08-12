@@ -7,9 +7,7 @@ interface IDividerProps {
 const Divider: React.FunctionComponent<IDividerProps> = ({ color }) => (
   <div className="py-2">
     <hr
-      className={`border-${color ?? "yellow-300"} divide-${
-        color ?? "yellow-300"
-      }`}
+      className={`border-${color ?? "primary"} divide-${color ?? "primary"}`}
     />
   </div>
 );

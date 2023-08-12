@@ -9,7 +9,7 @@ interface INavLinkProps {
 
 const NavLink: React.FunctionComponent<INavLinkProps> = ({ address, text }) => (
   <NavItem>
-    <Link href={address} legacyBehavior>{text}</Link>
+    <Link href={address}>{text}</Link>
   </NavItem>
 );
 

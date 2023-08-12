@@ -1,5 +1,6 @@
 import {
   Comfortaa,
+  EB_Garamond,
   Inconsolata,
   Major_Mono_Display,
   Raleway,
@@ -12,3 +13,4 @@ export const majormono = Major_Mono_Display({
 });
 export const raleway = Raleway({ subsets: ["latin"] });
 export const comfortaa = Comfortaa({ subsets: ["latin"] });
+export const ebGaramond = EB_Garamond({ subsets: ["latin"] });

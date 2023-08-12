@@ -21,8 +21,8 @@ const BlogCard: React.FC<IBlogCardProps> = ({
   href,
 }) => (
   <Column>
-    <Link href={href} passHref legacyBehavior>
-      <div className="px-4 py-4 hover:underline decoration-cyan-300">
+    <Link href={href}>
+      <div className="px-4 py-4 hover:underline decoration-secondary">
         <h3 className="text-2xl">{title}</h3>
         <p className="mx-4 my-2">
           <FontAwesomeIcon icon={faPencil} width={15} className="inline mx-2" />

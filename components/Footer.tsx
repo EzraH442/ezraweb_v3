@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 const Footer: React.FC<{}> = () => (
-  <footer className="bg-gray-dark text-white text-center font-raleway font-extralight h-24 flex flex-col justify-center items-center">
+  <footer className="text-white h-24 flex flex-col justify-center items-center">
     <span className="inline-flex justify-center space-x-2">
       <a href="mailto:ezrahuang155@gmail.com">
         <FontAwesomeIcon icon={faEnvelope} size="1x" width={10} />

@@ -73,7 +73,7 @@ const Home: NextPage<IHomepageProps> = ({ posts }) => {
                   title={post.metadata.title ?? ""}
                   date={post.metadata.date}
                   headline={post.metadata.headline ?? ""}
-                  href={post.metadata.slug ?? "/"}
+                  href={`/posts/${post.context.slug}`}
                 />
               ))}
           </div>

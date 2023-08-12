@@ -8,6 +8,7 @@ import Divider from "../components/Divider/Divider";
 import Layout from "../components/Layout";
 import { getAllPostSlugs } from "../lib/api";
 import onVerifySucess from "../lib/email";
+import Title from "../components/shared/Title";
 
 interface IContactPageProps {
   sitekey: string;
@@ -16,7 +17,7 @@ interface IContactPageProps {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      sitekey: process.env.SITEKEY!,
+      sitekey: process.env.SITEKEY ?? "",
     },
   };
 };
@@ -56,8 +57,8 @@ const ContactPage: NextPage<IContactPageProps> = ({ sitekey }) => {
         <link rel="icon" href="/images/favicon.ico" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Layout>
-        <h1>Contact</h1>
+      <Layout className="mx-4">
+        <Title>Contact</Title>
         <div className="pb-2">
           <Divider />
         </div>

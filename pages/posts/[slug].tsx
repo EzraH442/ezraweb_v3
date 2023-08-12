@@ -4,20 +4,21 @@ import Head from "next/head";
 import Image from "next/legacy/image";
 
 import { ParsedUrlQuery } from "querystring";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getAllPostSlugs, getPostBySlug } from "../../lib/api";
 import markdownToHtml from "../../lib/markdownToHtml";
 
 import Divider from "../../components/Divider/Divider";
 import Layout from "../../components/Layout";
 import { PostData } from "../../types/post";
-import * as styles from "./blog-post.module.css";
+import { ebGaramond } from "../../constants/fonts";
 
 type PostPageProps = {
   post: {
     post: PostData;
     content: string;
   };
-  latestSlug: string;
 };
 
 interface Params extends ParsedUrlQuery {
@@ -31,18 +32,11 @@ export const getStaticProps: GetStaticProps<PostPageProps, Params> = async (
     "title",
     "date",
     "featuredImage",
+    "archive",
   ]);
   const content = await markdownToHtml(post.content || "");
 
-  return {
-    props: {
-      post: {
-        post,
-        content,
-      },
-      latestSlug: getAllPostSlugs()[0],
-    },
-  };
+  return { props: { post: { post, content } } };
 };
 
 export const getStaticPaths: GetStaticPaths<Params> = () => {
@@ -55,7 +49,8 @@ export const getStaticPaths: GetStaticPaths<Params> = () => {
     fallback: false,
   };
 };
-const Post: NextPage<PostPageProps> = ({ post, latestSlug }) => (
+
+const Post: NextPage<PostPageProps> = ({ post }) => (
   <div>
     <Head>
       <title>{`${post.post.metadata.title} | EZ`}</title>
@@ -66,27 +61,50 @@ const Post: NextPage<PostPageProps> = ({ post, latestSlug }) => (
         <meta property="og:image" content={post.post.metadata.featuredImage} />
       )}
     </Head>
-    <Layout latestSlug={latestSlug}>
-      <h1 className={styles.title}>{post.post.metadata.title}</h1>
-      <h2 className={styles.date}>{post.post.metadata.date}</h2>
-      <Divider />
+    <Layout>
+      <div className="flex justify-start">
+        <a
+          href={post.post.context.previousSlug}
+          className="px-8 py-2 hover:underline decoration-secondary"
+        >
+          {"<<< \xa0 Previous Post"}
+        </a>
+      </div>
+      <div className="w-4/5 mx-auto">
+        <Divider />
+      </div>
+      <h1 className="text-3xl mx-12 font-thin font-serif">
+        {post.post.metadata.title}
+      </h1>
+      <div className="mx-14">
+        <FontAwesomeIcon icon={faPencil} width={12} className="inline mr-2" />
+        <h2 className="inline">{post.post.metadata.date}</h2>
+      </div>
+      <div className="w-4/5 mx-auto">
+        <Divider />
+      </div>
       {post.post.metadata.featuredImage && (
         <Image
           src={post.post.metadata.featuredImage}
           alt=""
-          className={styles.image}
           layout="responsive"
           width={800}
           height={600}
         />
       )}
-      <div
-        className={styles.content}
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
-      <div className={styles.links}>
-        <a href={post.post.context.previousSlug}>{"<<< \xa0 Previous Post"}</a>
-        <a href={post.post.context.nextSlug}>{"Next Post \xa0 >>>"}</a>
+      <div className="text-white font-thin text-lg flex items-center justify-center">
+        <div
+          className="max-w-2xl mx-5"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+      </div>
+      <div className="flex justify-end">
+        <a
+          href={post.post.context.nextSlug}
+          className="px-8 py-2 hover:underline decoration-secondary"
+        >
+          {"Next Post \xa0 >>>"}
+        </a>
       </div>
     </Layout>
   </div>

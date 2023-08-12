@@ -11,8 +11,10 @@ module.exports = {
         150: "150px",
       },
       colors: {
-        "gray-dark": "#222629",
-        "grass-green": "#86c232;",
+        "background": "#222629",
+        "primary": "#fde047",
+        "secondary": "#67e8f9",
+        "accent": "#f0abfc"
       },
       screens: {
         tb: "960px",

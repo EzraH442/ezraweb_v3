@@ -5,11 +5,7 @@ interface INavItemProps {
 }
 
 const NavItem: React.FunctionComponent<INavItemProps> = ({ children }) => (
-  <div
-    className="px-5 py-3 
-    font-light font-sans text-lg text-center text-white block"
-    style={{ backgroundColor: "222629" }}
-  >
+  <div className="px-5 py-3 font-light font-sans text-lg text-center text-white">
     {children}
   </div>
 );
