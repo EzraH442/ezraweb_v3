@@ -61,7 +61,7 @@ const Post: NextPage<PostPageProps> = ({ post }) => (
         <meta property="og:image" content={post.post.metadata.featuredImage} />
       )}
     </Head>
-    <Layout>
+    <Layout className="ml-4">
       <div className="flex justify-start">
         <a
           href={post.post.context.previousSlug}
@@ -70,34 +70,29 @@ const Post: NextPage<PostPageProps> = ({ post }) => (
           {"<<< \xa0 Previous Post"}
         </a>
       </div>
-      <div className="w-4/5 mx-auto">
-        <Divider />
-      </div>
-      <h1 className="text-3xl mx-12 font-thin font-serif">
-        {post.post.metadata.title}
-      </h1>
-      <div className="mx-14">
-        <FontAwesomeIcon icon={faPencil} width={12} className="inline mr-2" />
-        <h2 className="inline">{post.post.metadata.date}</h2>
-      </div>
-      <div className="w-4/5 mx-auto">
-        <Divider />
-      </div>
-      {post.post.metadata.featuredImage && (
-        <Image
-          src={post.post.metadata.featuredImage}
-          alt=""
-          layout="responsive"
-          width={800}
-          height={600}
-        />
-      )}
-      <div className="text-white font-thin text-lg flex items-center justify-center">
+      <article className="prose mx-auto">
+        <div className="not-prose">
+          <h1 className="text-3xl font-thin inline mr-6">
+            {post.post.metadata.title}
+          </h1>
+          <FontAwesomeIcon icon={faPencil} width={12} className="inline mr-2" />
+          <h2 className="inline">{post.post.metadata.date}</h2>
+        </div>
+        <hr />
+        {post.post.metadata.featuredImage && (
+          <Image
+            src={post.post.metadata.featuredImage}
+            alt=""
+            layout="responsive"
+            width={800}
+            height={600}
+          />
+        )}
         <div
           className="max-w-2xl mx-5"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
-      </div>
+      </article>
       <div className="flex justify-end">
         <a
           href={post.post.context.nextSlug}

@@ -28,7 +28,8 @@
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
     "uuid": "^9.0.0",
-    "vfile": "^5.3.2"
+    "vfile": "^5.3.2",
+    "@tailwindcss/typography": "^0.5.9"
   },
   "devDependencies": {
     "@types/node": "^17.0.35",
