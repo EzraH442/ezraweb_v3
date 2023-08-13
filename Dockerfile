@@ -7,10 +7,9 @@ ARG POST_URL
 ENV POST_URL=$POST_URL
 
 COPY ./package.json ./
-COPY ./yarn.lock ./
-RUN yarn install 
+RUN npm install 
 COPY ./ ./
-RUN SITEKEY=$SITEKEY POST_URL=$POST_URL yarn build
+RUN SITEKEY=$SITEKEY POST_URL=$POST_URL npm run build
 
 EXPOSE 3000
 
