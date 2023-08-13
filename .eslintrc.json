@@ -30,6 +30,7 @@
     "react/require-default-props": ["off"],
     "no-unused-vars": ["off"],
     "react/jsx-props-no-spreading": ["warn"],
+    "import/order": ["warn"],
     "camelcase": ["warn"]
   }
 }

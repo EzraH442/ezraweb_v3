@@ -1,6 +1,6 @@
 import fs from "fs";
-import yaml from "js-yaml";
 import { join } from "path";
+import yaml from "js-yaml";
 import { FlashcardData } from "../types/flashcards";
 import { allFilenamesInDir } from "./helpers";
 
