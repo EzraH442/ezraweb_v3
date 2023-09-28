@@ -1,0 +1,61 @@
+lecture 2:
+  What is a system?: A set of interconnected components (artifacts) where each component performs a specific function and components can interact with each other (e.x. send data, recieve data, execute a function) with protocols. Components can be (and are often) subsystems.
+  What is a protocol?: A set of rules for components of a system to communicate with each other.
+  What is the difference between systems and application programming: Systems programming involves directly interfacing with the operating system or machine. It can make assumptions about the properties of the system, which may cause code to not be easily portible. It also involves little runtime overhead and runs in low resource environments. It also involves manual memory mangement
+  What is an operating system?: A piece of software that allows you to interact with the computer without knowing the inner workings of the computer.
+  What is the primary function of an operating system?: To manage the computer's resources
+  Through what does an operating system allow you to use a computer's resources?: Libraries
+  What is a kernel?: An OS component that handles login, knows how to run programs, provides a basic common interface, and does memory management
+  What is a file system?: An OS component that defines the way the disk is formatted. It is the data structure that makes files real. It allows for reading and writing to disk and peripherals (e.g. usb). It provides user commands to interact with files (read, write). The FAT (File allocation table).
+  What is the shell?: A program that has 3 basic tasks. To get user input, display OS information, and store session information. It has a user interface, has a global memory, and has commands to interact with the OS.
+  What are utilities (in the context of an operating system)?: Additional OS commands and programs, third party commands and programs, and drivers and managers.
+  Where is the kernel (in RAM or on disk)?: RAM
+  Where is the file system (in RAM or on disk)?: part in RAM, part on disk.
+  What is the command line?: A text based UI where user inputs words, sends to the shell interpreter for processing, and provides inter-process communication.
+
+lecture 3:
+  What is bash?: A particular shell found on Unix-based system with a popular shell language
+
+lecture 5:
+  File extension for tar (uncompressed)?: .tar
+  File extension for tar (compressed)?: .tgx
+
+lecture 6(bash):
+  "$# system parameter": Number of arguments on the command line 
+  "$- system parameter": Options supplied to the shell
+  "$? system parameter": Exit value of the last command executed
+  "$$ system parameter": Process number of the current process
+  "$! system parameter": Process number of the last command done in background
+  "${n} command-line parameter": nth parameter 
+  $0: the name of the current shell or program
+  "$*": all arguments on the command-line $1 $2, ... , $n as a string
+  "$@": all arguments on the command-line $1 $2, ... , $n as an array
+  "Evaluate arithmetic expression": $[]
+  "capture command": $(), ``
+  "get contents of variable": ${}
+  "'<...>'": string literal
+  "\"<...>\"": pre-process first string
+  "\\n": newline
+  "\\t": tab
+  "\\b": backspace
+  "\\a": alert
+  "\\\\": display backslash
+
+lecture 8:
+  "if [[ -r $x ]] is true when": "x exists and is readable"
+  "if [[ -w $x ]] is true when": "x exists and is writeable"
+  "if [[ -x $x ]] is true when": "x exists and is executable"
+  "if [[ -f $x ]] is true when": "x exists and is a regular file"
+  "if [[ -d $x ]] is true when": "x exists and is a directory"
+  "if [[ -h $x ]] or [[ -L $x ]] is true when": "x exists and is a directory"
+  "if [[ -z $x ]] is true when": "the string length of x is 0"
+  "if [[ -n $x ]] is true when": "the string length of x is non-zero"
+  "if [[ $x=$y ]] is true when": "the strings x, y are identical  "
+  "if [[ $x ]] is true when": "the string x is not null"
+  "if [[ $x -eq $y ]] is true when": "integers x and y are equal"
+  "if [[ $x -ne $y ]] is true when": "integers x and y are not equal"
+  "if [[ $x -gt $y ]] is true when": "integer x > y"
+  "if [[ $x -ge $y ]] is true when": "integer x >= y"
+  "if [[ $x -lt $y ]] is true when": "integer x < y"
+  "if [[ $x -le $y ]] is true when": "integer x <= y"
+  "if statement": "if test-commands; then consequent-commands; [elif more-test-commands; then more-consequents;] [else alternate-consequents;] fi"
