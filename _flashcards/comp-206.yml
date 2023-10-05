@@ -59,3 +59,14 @@ lecture 8:
   "if [[ $x -lt $y ]] is true when": "integer x < y"
   "if [[ $x -le $y ]] is true when": "integer x <= y"
   "if statement": "if test-commands; then consequent-commands; [elif more-test-commands; then more-consequents;] [else alternate-consequents;] fi"
+
+lecture 10:
+  Program: an executable file on disk
+  Process: a running executable program
+  What is process control: determining when and in what order a program executes
+  sed: stream editor
+  awk: Aho, Weinberger, and Kernighan
+  "; process control": In order execution of commands
+  "& process control": Parallel execution of commands
+  "* * * * *"
+
