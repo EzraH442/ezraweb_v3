@@ -4,7 +4,7 @@ const headers = require("./headers");
 module.exports = {
   reactStrictMode: false,
   typescript: {
-    ignoreBuildErrors: true,
+    // ignoreBuildErrors: true,
   },
   poweredByHeader: false,
   async headers() {

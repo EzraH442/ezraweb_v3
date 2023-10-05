@@ -21,12 +21,12 @@ lecture 5:
   File extension for tar (compressed)?: .tgx
 
 lecture 6(bash):
-  "$# system parameter": Number of arguments on the command line 
+  "$# system parameter": Number of arguments on the command line
   "$- system parameter": Options supplied to the shell
   "$? system parameter": Exit value of the last command executed
   "$$ system parameter": Process number of the current process
   "$! system parameter": Process number of the last command done in background
-  "${n} command-line parameter": nth parameter 
+  "${n} command-line parameter": nth parameter
   $0: the name of the current shell or program
   "$*": all arguments on the command-line $1 $2, ... , $n as a string
   "$@": all arguments on the command-line $1 $2, ... , $n as an array
@@ -34,7 +34,7 @@ lecture 6(bash):
   "capture command": $(), ``
   "get contents of variable": ${}
   "'<...>'": string literal
-  "\"<...>\"": pre-process first string
+  '"<...>"': pre-process first string
   "\\n": newline
   "\\t": tab
   "\\b": backspace
@@ -68,5 +68,3 @@ lecture 10:
   awk: Aho, Weinberger, and Kernighan
   "; process control": In order execution of commands
   "& process control": Parallel execution of commands
-  "* * * * *"
-
