@@ -14,6 +14,10 @@ import Layout from "../../components/Layout";
 import { PostData } from "../../types/post";
 import { ebGaramond } from "../../constants/fonts";
 
+import "prismjs/themes/prism-tomorrow.css";
+import "prismjs/plugins/line-numbers/prism-line-numbers.css";
+// import "../styles/prism-overrides.css";
+
 type PostPageProps = {
   post: {
     post: PostData;
@@ -70,7 +74,7 @@ const Post: NextPage<PostPageProps> = ({ post }) => (
           {"<<< \xa0 Previous Post"}
         </a>
       </div>
-      <article className="prose mx-auto">
+      <article className="prose mx-auto max-w-4xl">
         <div className="not-prose">
           <h1 className="text-3xl font-thin inline mr-6">
             {post.post.metadata.title}
@@ -80,16 +84,10 @@ const Post: NextPage<PostPageProps> = ({ post }) => (
         </div>
         <hr />
         {post.post.metadata.featuredImage && (
-          <Image
-            src={post.post.metadata.featuredImage}
-            alt=""
-            layout="responsive"
-            width={800}
-            height={600}
-          />
+          <img src={post.post.metadata.featuredImage} alt="" />
         )}
         <div
-          className="max-w-2xl mx-5"
+          className="mx-5"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </article>
