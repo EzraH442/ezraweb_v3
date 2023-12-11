@@ -14,8 +14,8 @@ export function getAllPostSlugs() {
 
 export function makePostContext(i: number, fileNames: string[]): PostContext {
   const slug = fileNames[i];
-  const nextSlug = fileNames[i - 1 < 0 ? 0 : i - 1];
-  const previousSlug =
+  const previousSlug = fileNames[i - 1 < 0 ? 0 : i - 1];
+  const nextSlug =
     fileNames[i === fileNames.length - 1 ? fileNames.length - 1 : i + 1];
 
   const ret = {

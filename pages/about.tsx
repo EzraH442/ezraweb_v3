@@ -11,8 +11,8 @@ const AboutPage: NextPage = () => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <Layout>
-      <pre className=" overflow-scroll">{`
-      EZRAHUANG
+      <pre className="overflow-scroll">{`
+      EZRA HUANG
 
       NAME
           ezra - statistics and comp. sci. student at mcgill
@@ -33,7 +33,7 @@ const AboutPage: NextPage = () => (
           random 121
           lithium engineer
 
-      EZRAHUANG                              July 2023                           EZRAHUANG
+      EZRA HUANG                              July 2023                           EZRA HUANG
       `}</pre>
     </Layout>
   </>

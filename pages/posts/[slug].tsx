@@ -1,22 +1,22 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
 import Head from "next/head";
-import Image from "next/legacy/image";
 
 import { ParsedUrlQuery } from "querystring";
-import { faPencil } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronCircleLeft,
+  faChevronCircleRight,
+  faPencil,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getAllPostSlugs, getPostBySlug } from "../../lib/api";
 import markdownToHtml from "../../lib/markdownToHtml";
 
-import Divider from "../../components/Divider/Divider";
 import Layout from "../../components/Layout";
 import { PostData } from "../../types/post";
-import { ebGaramond } from "../../constants/fonts";
 
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
-// import "../styles/prism-overrides.css";
 
 type PostPageProps = {
   post: {
@@ -66,17 +66,17 @@ const Post: NextPage<PostPageProps> = ({ post }) => (
       )}
     </Head>
     <Layout className="ml-4">
-      <div className="flex justify-start">
-        <a
-          href={post.post.context.previousSlug}
-          className="px-8 py-2 hover:underline decoration-secondary"
-        >
-          {"<<< \xa0 Previous Post"}
-        </a>
-      </div>
+      <a
+        className="flex justify-start items-center hover:underline decoration-secondary"
+        href={post.post.context.previousSlug}
+      >
+        <FontAwesomeIcon icon={faChevronCircleLeft} width={12} />
+        <p className="pl-2 my-2">Previous Post</p>
+      </a>
+
       <article className="prose mx-auto max-w-4xl">
         <div className="not-prose">
-          <h1 className="text-3xl font-thin inline mr-6">
+          <h1 className="text-3xl font-thin inline mr-6 text-secondary">
             {post.post.metadata.title}
           </h1>
           <FontAwesomeIcon icon={faPencil} width={12} className="inline mr-2" />
@@ -93,10 +93,11 @@ const Post: NextPage<PostPageProps> = ({ post }) => (
       </article>
       <div className="flex justify-end">
         <a
+          className="flex justify-start items-center hover:underline decoration-secondary"
           href={post.post.context.nextSlug}
-          className="px-8 py-2 hover:underline decoration-secondary"
         >
-          {"Next Post \xa0 >>>"}
+          <p className="pr-1 my-2">Next Post</p>
+          <FontAwesomeIcon icon={faChevronCircleRight} width={12} />
         </a>
       </div>
     </Layout>

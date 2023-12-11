@@ -6,8 +6,8 @@ export function allFilenamesInDir(dir: string) {
 
 export function allSortedFilenamesInDir(dir: string) {
   return allFilenamesInDir(dir).sort((a, b) => {
-    if (a < b) return 1;
-    if (a > b) return -1;
+    if (a < b) return -1;
+    if (a > b) return 1;
     return 0;
   });
 }

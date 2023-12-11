@@ -23,8 +23,8 @@ const BlogCard: React.FC<IBlogCardProps> = ({
   <Column>
     <Link href={href}>
       <div className="px-4 py-4 hover:underline decoration-secondary">
-        <h3 className="text-2xl">{title}</h3>
-        <p className="mx-4 my-2">
+        <h3 className="text-2xl text-accent">{title}</h3>
+        <p className="mx-4 my-2 text-secondary">
           <FontAwesomeIcon icon={faPencil} width={15} className="inline mx-2" />
           {date}
         </p>

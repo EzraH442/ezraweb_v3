@@ -12,11 +12,13 @@ const Layout: React.FunctionComponent<ILayoutProps> = ({
   className,
 }) => (
   <div className="min-h-screen text-primary bg-background">
-    <Header />
-    <div className={`min-h-[calc(100vh-192px)] ${className ?? ""}`}>
-      {children}
+    <div className="max-w-4xl mx-auto">
+      <Header />
+      <div className={`min-h-[calc(100vh-192px)] ${className ?? ""}`}>
+        {children}
+      </div>
+      <Footer />
     </div>
-    <Footer />
   </div>
 );
 

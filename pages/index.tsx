@@ -37,27 +37,29 @@ interface IHomepageProps {
 
 const Home: NextPage<IHomepageProps> = ({ posts }) => {
   return (
-    <div>
+    <>
       <Head>
         <title>Home | Ez</title>
         <link rel="icon" href="/public/favicon.ico" />
         <meta name="description" content="The homepage of Ezra's website" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-
       <Layout>
         <Banner />
 
         <div className="flex flex-col items-center pt-9">
-          <h2 className="font-raleway text-2xl mx-10 mb-3 font-thin">
+          <h2 className="font-raleway text-2xl mx-10 mb-3 font-thin text-accent">
             the tar pit
           </h2>
           <div className="w-36">
             <Divider />
           </div>
           <div>
-            <Card label="3D Tetris built with Webassembly" href="/wasm-test" />
-            <Card label="French flashcards" href="/flashcards" />
+            <Card
+              label="3D Tetris built with Webassembly (WIP)"
+              href="/wasm-test"
+            />
+            <Card label="Photo sharing application" href="/posts/2023-11-26" />
           </div>
           <div className="mt-12" />
           <h2 className="font-raleway text-2xl mx-10 mb-3 font-thin">blog</h2>
@@ -79,7 +81,7 @@ const Home: NextPage<IHomepageProps> = ({ posts }) => {
           </div>
         </div>
       </Layout>
-    </div>
+    </>
   );
 };
 export default Home;
