@@ -6,38 +6,31 @@ interface Props {
   skip: boolean;
 }
 
+const minWidth = 100;
+const maxWidth = 1000;
+
+const getWidth = (w: number) => {
+  if (w > maxWidth) return 300;
+  if (w < minWidth) return minWidth;
+  return w;
+};
+
 const Filler: React.FC<{ width: number; skip: boolean }> = ({
   width,
   skip,
 }) => {
-  const minWidth = 100;
-  const maxWidth = 1000;
+  const s = { width: getWidth(width), height: 1 };
+  const c = "border-b border grow-0 shrink-0";
 
   if (skip && width > maxWidth) {
-    return (
-      <div
-        style={{ width: 300, height: 1 }}
-        className="border-b border-2 border-dotted border-secondary grow-0 shrink-0"
-      />
-    );
+    return <div style={s} className={`${c} border-dotted border-secondary`} />;
   }
   if (width < minWidth) {
-    return (
-      <div
-        style={{ width: minWidth, height: 1 }}
-        className="border-b border-dashed border-accent inline grow-0 shrink-0"
-      />
-    );
+    return <div style={s} className={`${c} border-dashed border-accent`} />;
   }
-  return (
-    <div
-      style={{ width, height: 1 }}
-      className="border-b border-white inline grow-0 shrink-0"
-    />
-  );
-};
 
-const WrappedTimeline = () => {};
+  return <div style={s} className={`${c} border-b border-white`} />;
+};
 
 const Timeline: React.FC<Props> = ({ children, skip }) => {
   const pixelsPerDay = 10;
@@ -54,10 +47,10 @@ const Timeline: React.FC<Props> = ({ children, skip }) => {
                   children[i].props.date.getTime()) /
                 ((1000 * 3600 * 24) / pixelsPerDay)
               : 100;
+
           return (
-            <>
+            <div key={v.key} className="flex items-center">
               <div
-                key={v.key}
                 style={{ height: 20, width: 1 }}
                 className="border-l border-white relative"
               >
@@ -65,8 +58,8 @@ const Timeline: React.FC<Props> = ({ children, skip }) => {
                   <TimelineItem {...v.props} />
                 </div>
               </div>
-              <Filler key={`${v.key}+`} width={w} skip={skip} />
-            </>
+              <Filler width={w} skip={skip} />
+            </div>
           );
         })}
       </div>
