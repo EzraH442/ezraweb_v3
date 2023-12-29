@@ -1,7 +1,7 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
-import { PostContext, PostData, PostField } from "../types/post";
+import { PostContext, PostData, MetadataField } from "../types/post";
 import { allSortedFilenamesInDir, removeMarkdownExtension } from "./helpers";
 
 export const POSTS_DIR = join(process.cwd(), "_posts");
@@ -18,10 +18,16 @@ export function makePostContext(i: number, fileNames: string[]): PostContext {
   const nextSlug =
     fileNames[i === fileNames.length - 1 ? fileNames.length - 1 : i + 1];
 
+  const [yyyy, mm, dd] = removeMarkdownExtension(fileNames[i])
+    .split("-")
+    .map((s) => parseInt(s));
+  const date = new Date(yyyy, mm - 1, dd).getTime();
+
   const ret = {
     previousSlug,
     slug,
     nextSlug,
+    date,
   };
 
   return ret;
@@ -29,7 +35,7 @@ export function makePostContext(i: number, fileNames: string[]): PostContext {
 
 export function getPostByContext(
   context: PostContext,
-  fields: PostField[] = [],
+  fields: MetadataField[] = [],
 ) {
   const realSlug = removeMarkdownExtension(context.slug);
   const realNextSlug = removeMarkdownExtension(context.nextSlug);
@@ -39,10 +45,9 @@ export function getPostByContext(
   const { data, content } = matter(fileContents);
 
   const post: PostData = {
-    metadata: {
-      date: "",
-    },
+    metadata: {},
     context: {
+      date: context.date,
       previousSlug: realPreviousSlug,
       slug: realSlug,
       nextSlug: realNextSlug,
@@ -59,17 +64,15 @@ export function getPostByContext(
   return post;
 }
 
-export function getPostBySlug(slug: string, fields: PostField[]) {
+export function getPostBySlug(slug: string, fields: MetadataField[]) {
   const slugs = allSortedFilenamesInDir(POSTS_DIR);
   const index = slugs.indexOf(`${slug}.md`);
 
   return getPostByContext(makePostContext(index, slugs), fields);
 }
 
-export function getAllPosts(fields: PostField[] = []) {
+export function getAllPosts(fields: MetadataField[] = []) {
   const slugs = allSortedFilenamesInDir(POSTS_DIR);
-  fields.push("date");
-
   const posts: PostData[] = [];
   for (let i = 0; i < slugs.length; i++) {
     posts.push(getPostByContext(makePostContext(i, slugs), fields));

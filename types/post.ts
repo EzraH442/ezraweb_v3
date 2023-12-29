@@ -1,25 +1,16 @@
-type requiredFields = "date";
-type optionalFields =
-  | "title"
-  | "slug"
-  | "featuredImage"
-  | "nextSlug"
-  | "previousSlug"
-  | "headline"
-  | "archive";
+export type MetadataField = "title" | "featuredImage" | "headline" | "archive";
 
-type requiredItemsType = { [K in requiredFields]: string };
-type optionalItemsType = { [K in optionalFields]?: string };
+export type Metadata = { [K in MetadataField]?: string };
 
-export type PostField = requiredFields | optionalFields;
 export interface PostContext {
   previousSlug: string;
   slug: string;
+  date: number;
   nextSlug: string;
 }
 
 export interface PostData {
-  metadata: requiredItemsType & optionalItemsType;
+  metadata: Metadata;
   context: PostContext;
   content: string | null;
 }
