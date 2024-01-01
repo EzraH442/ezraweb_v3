@@ -17,6 +17,7 @@ import { PostData } from "../../types/post";
 
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
+import formatDate from "../../lib/util";
 
 type PostPageProps = {
   post: {
@@ -34,7 +35,6 @@ export const getStaticProps: GetStaticProps<PostPageProps, Params> = async (
 ) => {
   const post = getPostBySlug(context.params!.slug, [
     "title",
-    "date",
     "featuredImage",
     "archive",
   ]);
@@ -80,7 +80,9 @@ const Post: NextPage<PostPageProps> = ({ post }) => (
             {post.post.metadata.title}
           </h1>
           <FontAwesomeIcon icon={faPencil} width={12} className="inline mr-2" />
-          <h2 className="inline">{post.post.metadata.date}</h2>
+          <h2 className="inline">
+            {formatDate(new Date(post.post.context.date))}
+          </h2>
         </div>
         <hr />
         {post.post.metadata.featuredImage && (

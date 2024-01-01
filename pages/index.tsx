@@ -9,6 +9,7 @@ import { allSortedFilenamesInDir } from "../lib/helpers";
 import { PostData } from "../types/post";
 import Card from "../components/homepage/Card";
 import Layout from "../components/Layout";
+import formatDate from "../lib/util";
 
 export const getStaticProps: GetStaticProps = async () => {
   const latestPosts = [];
@@ -20,7 +21,6 @@ export const getStaticProps: GetStaticProps = async () => {
     latestPosts.push(
       getPostByContext(context, [
         "title",
-        "date",
         "headline",
         "featuredImage",
         "archive",
@@ -71,9 +71,9 @@ const Home: NextPage<IHomepageProps> = ({ posts }) => {
               .filter((post) => !parseInt(post.metadata.archive ?? "0", 10))
               .map((post) => (
                 <BlogCard
-                  key={post.metadata.date}
+                  key={post.context.date}
                   title={post.metadata.title ?? ""}
-                  date={post.metadata.date}
+                  date={formatDate(new Date(post.context.date))}
                   headline={post.metadata.headline ?? ""}
                   href={`/posts/${post.context.slug}`}
                 />

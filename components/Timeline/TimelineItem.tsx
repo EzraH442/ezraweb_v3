@@ -1,24 +1,6 @@
 import Link from "next/link";
 import React from "react";
-
-const months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
-export function formatDate(d: Date): string {
-  return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
-}
+import formatDate from "../../lib/util";
 
 export interface TimelineItemProps {
   slug: string;

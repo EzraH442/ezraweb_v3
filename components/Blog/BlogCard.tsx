@@ -6,7 +6,7 @@ import { PostData } from "../../types/post";
 
 const BlogCard: React.FC<{ post: PostData }> = ({ post }) => {
   return (
-    <Link href={`/posts/${post.context.slug}`} key={post.metadata.date}>
+    <Link href={`/posts/${post.context.slug}`} key={post.context.date}>
       <div className="my-3 hover:cursor-pointer hover:underline decoration-cyan-300">
         <div className="flex">
           <h3 className="font-sans text-lg inline text-accent">
@@ -18,7 +18,7 @@ const BlogCard: React.FC<{ post: PostData }> = ({ post }) => {
             className="inline ml-2 mr-1 text-cyan-300"
           />
           <h3 className="font-sans text-lg inline text-cyan-300">
-            {post.metadata.date}
+            {post.context.date}
           </h3>
         </div>
         <p className="font-sans">{post.metadata.headline}</p>
