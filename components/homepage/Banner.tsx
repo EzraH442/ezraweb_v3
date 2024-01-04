@@ -3,7 +3,9 @@ import React, { useEffect, useState, useCallback } from "react";
 import { consolas } from "../../constants/fonts";
 
 const getSize = (size: number) => {
-  return size > 8 ? size : 8;
+  if (size < 10) return 10;
+  if (size > 18) return 18;
+  return size;
 };
 
 const useWidth = () => {
@@ -27,10 +29,10 @@ const Banner: React.FunctionComponent<{}> = () => {
 
   return (
     <div className="relative">
-      <div className="brightness-50">
+      <div className="brightness-50 border-secondary border-2 border-solid rounded-md">
         <Image
           src="/images/laputa.jpg"
-          className="w-full"
+          className="w-full rounded-md"
           alt="An Image of Laputa, from the film <i>Castle in the Sky</i>"
           layout="responsive"
           width={1000}
@@ -38,7 +40,7 @@ const Banner: React.FunctionComponent<{}> = () => {
         />
       </div>
       <pre
-        className={`absolute w-4/6 bg-opacity-40 bg-black text-white px-4 py-8
+        className={`absolute w-5/7 bg-opacity-40 bg-black text-white px-4 py-4
     top-16 font-light ${consolas.className}`}
         style={{ fontSize: size }}
       >{`

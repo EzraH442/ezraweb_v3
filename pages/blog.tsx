@@ -33,14 +33,14 @@ const Blog: NextPage<IAllJournalProps> = ({
   return (
     <>
       <Head>
-        <title>All Posts | EZ</title>
+        <title>All Posts</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="All Of Ezra's Posts" />
       </Head>
       <Layout>
         <Title>All Posts</Title>
         <Divider />
-        <h2 className="text-lg">{`${posts.length} Total posts:`}</h2>
+        <h2 className="text-lg">{`${posts.length} total posts:`}</h2>
 
         <div className="flex space-x-2">
           <p>Skip long empty periods?</p>
@@ -50,7 +50,7 @@ const Blog: NextPage<IAllJournalProps> = ({
             onChange={(e) => setUseFillerSkips(e.target.checked)}
           />
         </div>
-        <div className="flex min-h-0 min-w-0 overflow-scroll" ref={ref}>
+        <div className="flex min-h-0 min-w-0 overflow-x-scroll" ref={ref}>
           <Timeline skip={useFillerSkips}>
             {posts
               // .filter((post: PostData) => !post.metadata.archive)

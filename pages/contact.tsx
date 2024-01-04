@@ -52,7 +52,7 @@ const ContactPage: NextPage<IContactPageProps> = ({ sitekey }) => {
   return (
     <>
       <Head>
-        <title>About | EZ</title>
+        <title>About</title>
         <meta name="description" content="About Me" />
         <link rel="icon" href="/images/favicon.ico" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />

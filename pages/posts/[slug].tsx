@@ -57,7 +57,7 @@ export const getStaticPaths: GetStaticPaths<Params> = () => {
 const Post: NextPage<PostPageProps> = ({ post }) => (
   <div>
     <Head>
-      <title>{`${post.post.metadata.title} | EZ`}</title>
+      <title>{`${post.post.metadata.title}`}</title>
       <meta name="description" content={post.post.metadata.headline} />
       <meta property="og:type" content="article" />
       <link rel="icon" href="/favicon.ico" />

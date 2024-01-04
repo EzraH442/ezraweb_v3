@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 import React from "react";
 
 interface IColumnProps {
@@ -6,7 +5,7 @@ interface IColumnProps {
 }
 
 const Column: React.FC<IColumnProps> = ({ children }) => (
-  <div className="mx-3 my-5 shadow-md shadow-accent">{children}</div>
+  <div className="mx-3 my-5 border-accent border">{children}</div>
 );
 
 export default Column;

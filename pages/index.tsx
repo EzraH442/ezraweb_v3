@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps = async () => {
     );
   }
 
-  return { props: { posts: latestPosts } };
+  return { props: { posts: latestPosts.reverse() } };
 };
 
 interface IHomepageProps {
@@ -39,7 +39,7 @@ const Home: NextPage<IHomepageProps> = ({ posts }) => {
   return (
     <>
       <Head>
-        <title>Home | Ez</title>
+        <title>ezrahuang.com</title>
         <link rel="icon" href="/public/favicon.ico" />
         <meta name="description" content="The homepage of Ezra's website" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -62,7 +62,9 @@ const Home: NextPage<IHomepageProps> = ({ posts }) => {
             <Card label="Photo sharing application" href="/posts/2023-11-26" />
           </div>
           <div className="mt-12" />
-          <h2 className="font-raleway text-2xl mx-10 mb-3 font-thin">blog</h2>
+          <h2 className="font-raleway text-2xl mx-10 mb-3 font-thin">
+            miscellaneous musings
+          </h2>
           <div className="w-36">
             <Divider />
           </div>
@@ -72,7 +74,7 @@ const Home: NextPage<IHomepageProps> = ({ posts }) => {
               .map((post) => (
                 <BlogCard
                   key={post.context.date}
-                  title={post.metadata.title ?? ""}
+                  title={post.metadata.title!}
                   date={formatDate(new Date(post.context.date))}
                   headline={post.metadata.headline ?? ""}
                   href={`/posts/${post.context.slug}`}

@@ -18,12 +18,16 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
   return (
     <Link href={slug}>
       <div
-        className="border border-accent overflow-scroll px-3 rounded-md py-2 hover:border-secondary "
-        style={{ maxWidth: "200px" }}
+        className="px-3 py-2 overflow-scroll relative
+                   border border-accent hover:border-secondary rounded-md 
+                   w-[200px] hover:bg-background hover:z-50
+                   whitespace-nowrap hover:whitespace-normal min-h-24"
       >
-        <p>{formatDate(date)}</p>
-        <p className="text-accent whitespace-nowrap">{title}</p>
-        <p className="whitespace-nowrap">{headline}</p>
+        <div className="absolute">
+          <p>{formatDate(date)}</p>
+          <p className="text-accent">{title}</p>
+          <p className="">{headline}</p>
+        </div>
       </div>
     </Link>
   );
