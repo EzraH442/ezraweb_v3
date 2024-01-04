@@ -114,12 +114,7 @@ const Timeline: React.FC<Props> = ({
               key={p.context.date}
               href={`/posts/${p.context.slug}`}
             >
-              <div
-                className="w-0 h-0 border-t-0 border-b-8 border-accent"
-                style={{
-                  border: "",
-                }}
-              />
+              <div className="absolute top-2 h-3 w-3" />
               <div className="absolute top-5 z-30 bg-background border border-accent w-80 max-h-80 rounded-md ml-[-20px]">
                 <div className="mx-4 my-2">
                   <p>{formatDate(new Date(p.context.date))}</p>
