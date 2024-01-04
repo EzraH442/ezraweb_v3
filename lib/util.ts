@@ -1,4 +1,4 @@
-export const months = [
+export const Months = [
   "Jan",
   "Feb",
   "Mar",
@@ -14,7 +14,7 @@ export const months = [
 ];
 
 function formatDate(d: Date): string {
-  return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+  return `${Months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
 }
 
 export default formatDate;

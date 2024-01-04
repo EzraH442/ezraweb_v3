@@ -6,9 +6,7 @@ import Layout from "../components/Layout";
 import { getAllPosts } from "../lib/api";
 import { PostData } from "../types/post";
 import Title from "../components/shared/Title";
-import Timeline from "../components/Timeline/Timeline";
-import { TimelineItem } from "../components/Timeline/TimelineItem";
-import TimelineA from "../components/TimelineV2/Timeline";
+import TimelineV2 from "../components/TimelineV2/Timeline";
 
 interface IAllJournalProps {
   posts: PostData[];
@@ -43,32 +41,7 @@ const Blog: NextPage<IAllJournalProps> = ({
         <Divider />
         <h2 className="text-lg">{`${posts.length} total posts:`}</h2>
 
-        <div className="flex space-x-2">
-          <p>Skip long empty periods?</p>
-          <input
-            type="checkbox"
-            checked={useFillerSkips}
-            onChange={(e) => setUseFillerSkips(e.target.checked)}
-          />
-        </div>
-        <div className="flex min-h-0 min-w-0 overflow-x-scroll" ref={ref}>
-          <Timeline skip={useFillerSkips}>
-            {posts
-              // .filter((post: PostData) => !post.metadata.archive)
-              .map((post: PostData) => {
-                return (
-                  <TimelineItem
-                    key={post.context.date}
-                    date={new Date(post.context.date)}
-                    slug={`/posts/${post.context.slug}`}
-                    title={post.metadata.title!}
-                    headline={post.metadata.headline!}
-                  />
-                );
-              })}
-          </Timeline>
-        </div>
-        <TimelineA posts={posts} />
+        <TimelineV2 posts={posts} />
       </Layout>
     </>
   );
