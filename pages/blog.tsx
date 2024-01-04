@@ -8,6 +8,7 @@ import { PostData } from "../types/post";
 import Title from "../components/shared/Title";
 import Timeline from "../components/Timeline/Timeline";
 import { TimelineItem } from "../components/Timeline/TimelineItem";
+import TimelineA from "../components/TimelineV2/Timeline";
 
 interface IAllJournalProps {
   posts: PostData[];
@@ -67,6 +68,7 @@ const Blog: NextPage<IAllJournalProps> = ({
               })}
           </Timeline>
         </div>
+        <TimelineA posts={posts} />
       </Layout>
     </>
   );

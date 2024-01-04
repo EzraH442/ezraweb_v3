@@ -32,6 +32,7 @@
     "react/jsx-props-no-spreading": ["warn"],
     "import/order": ["warn"],
     "camelcase": ["warn"],
-    "radix":"off"
+    "radix":"off",
+    "react/no-array-index-key": "warn"
   }
 }
