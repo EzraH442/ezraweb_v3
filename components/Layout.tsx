@@ -1,20 +1,15 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 
-interface ILayoutProps {
-  children: React.ReactNode;
-  className?: string;
-}
 
-const Layout: React.FunctionComponent<ILayoutProps> = ({
+const Layout: React.FC<PropsWithChildren<{}>> = ({
   children,
-  className,
 }) => (
   <div className="min-h-screen text-primary bg-background">
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-3xl mx-auto">
       <Header />
-      <div className={`min-h-[calc(100vh-192px)] ${className ?? ""}`}>
+      <div className={`min-h-[calc(100vh)]}`}>
         {children}
       </div>
       <Footer />
