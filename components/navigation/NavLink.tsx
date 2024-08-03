@@ -1,21 +1,18 @@
 import Link from "next/link";
-import React from "react";
+import React, { AnchorHTMLAttributes } from "react";
 
-interface INavLinkProps {
-  href: string;
+interface INavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   text: React.ReactNode;
   className?: string;
+  href: string
 }
 
 const NavLink: React.FunctionComponent<INavLinkProps> = ({
-  href: address,
   text,
   className = "",
+  ...rest
 }) => (
-  <Link
-    href={address}
-    className={`text-lg text-center text-white ${className}`}
-  >
+  <Link className={`text-lg text-center text-white ${className}`} {...rest}>
     {text}
   </Link>
 );

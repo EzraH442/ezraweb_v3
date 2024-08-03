@@ -55,6 +55,12 @@ const RootLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
                 text="CONTACT"
                 className="pr-2 tb:pr-5 brightness-75 hover:underline"
               />
+              <NavLink
+                href="/cv-ezra-huang.pdf"
+                text="CV"
+                className="pr-2 tb:pr-5 brightness-75 hover:underline"
+                download
+              />
             </div>
             <div className="fixed top-0 right-0 z-20 h-full w-full -translate-x-full transition duration-500 peer-has-[:checked]:translate-x-0 backdrop-blur">
               <div className="float-left min-h-full px-6 pt-12 bg-background shadow-md shadow-secondary w-150">
@@ -82,6 +88,12 @@ const RootLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
                     href="/#contact"
                     text="CONTACT"
                     className="brightness-75"
+                  />
+                  <NavLink
+                    href="/cv-ezra-huang.pdf"
+                    text="CV"
+                    className="brightness-75"
+                    download
                   />
                 </menu>
               </div>

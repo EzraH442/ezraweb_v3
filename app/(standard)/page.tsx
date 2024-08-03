@@ -3,10 +3,11 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import Divider from "../../components/Divider/Divider";
 import Card from "../../components/homepage/Card";
 import Wasm from "../../components/Wasm";
+import { robotoSlab } from "../../lib/fonts";
 
 export const metadata: Metadata = {
   title: "Ezra Huang",
@@ -223,6 +224,19 @@ EZRA HUANG                              July 2024                           EZRA
             </Link>
           </li>
         </ul>
+        <Divider>
+          <h2 className="text-2xl font-thin text-accent" id="contact">
+            Contact
+          </h2>
+        </Divider>
+        <div className={`${robotoSlab.className} flex flex-col`}>
+          <Link href="mailto:ezra.huang@mail.mcgill.ca">
+            <div className="flex items-center space-x-3">
+              <FontAwesomeIcon icon={faEnvelope} width={12} />
+              <span>ezra.huang@mail.mcgill.ca </span>
+            </div>
+          </Link>
+        </div>
       </div>
     </>
   );
