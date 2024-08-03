@@ -2,9 +2,11 @@ import type { Metadata, NextPage } from "next";
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-import Divider from "../components/Divider/Divider";
-import Card from "../components/homepage/Card";
-import Wasm from "../components/Wasm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import Divider from "../../components/Divider/Divider";
+import Card from "../../components/homepage/Card";
+import Wasm from "../../components/Wasm";
 
 export const metadata: Metadata = {
   title: "Ezra Huang",
@@ -16,7 +18,7 @@ const Home: NextPage = () => {
   return (
     <>
       <div className="border-secondary border-2 border-solid rounded-md">
-        <Link href="/images/cloud.png" target="_blank">
+        <Link href="/cloud" target="_blank">
           <Image
             src="/images/cloud.png"
             alt="A terminal history word cloud"
@@ -28,10 +30,14 @@ const Home: NextPage = () => {
         </Link>
       </div>
       <div>
-        <p className="flex items-center justify-center pt-2 font-serif text-sm">
+        <input type="checkbox" className="hidden" id="info-wordcloud" />
+        <span className="flex items-center justify-center pt-2 font-serif text-sm">
           Terminal word cloud, June 2023 - June 2024. Click on image for full
           size.
-        </p>
+          <label htmlFor="info-wordcloud" className="cursor-pointer">
+            <FontAwesomeIcon icon={faInfoCircle} width={12} />
+          </label>
+        </span>
       </div>
       <Divider>
         <h2 className="text-2xl font-thin text-accent" id="about">

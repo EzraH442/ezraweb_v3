@@ -1,12 +1,12 @@
-import "../styles/globals.css";
+import "../../styles/globals.css";
 
 import React, { PropsWithChildren } from "react";
 import { Metadata } from "next";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { openSans, robotoSlab } from "../lib/fonts";
-import NavLink from "../components/navigation/NavLink";
-import Footer from "../components/Footer";
+import { openSans, robotoSlab } from "../../lib/fonts";
+import NavLink from "../../components/navigation/NavLink";
+import Footer from "../../components/Footer";
 
 export const metadata: Metadata = {
   title: "Ezra",
@@ -19,7 +19,7 @@ const RootLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       <body className={`${openSans.className}`}>
         <div className="flex items-center h-24 sticky top-0 sm:static bg-background text-primary border-b border-0 border-secondary">
           <div className="px-4 max-w-3xl md:mx-auto flex items-center w-full">
-            <label className="sm:hidden peer group mr-5">
+            <label className="sm:hidden peer group mr-5 cursor-pointer">
               <input type="checkbox" className="hidden" id="hamburger" />
               <FontAwesomeIcon
                 className="group-has-[:checked]:hidden"
@@ -60,7 +60,7 @@ const RootLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
               <div className="float-left min-h-full px-6 pt-12 bg-background shadow-md shadow-secondary w-150">
                 <label
                   htmlFor="hamburger"
-                  className="flex items-center justify-center w-full mb-8"
+                  className="flex items-center justify-center w-full mb-8 cursor-pointer"
                 >
                   <FontAwesomeIcon icon={faXmark} width={20} />
                 </label>
