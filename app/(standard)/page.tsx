@@ -31,13 +31,9 @@ const Home: NextPage = () => {
         </Link>
       </div>
       <div>
-        <input type="checkbox" className="hidden" id="info-wordcloud" />
         <span className="flex items-center justify-center pt-2 font-serif text-sm">
           Terminal word cloud, June 2023 - June 2024. Click on image for full
           size.
-          <label htmlFor="info-wordcloud" className="cursor-pointer">
-            <FontAwesomeIcon icon={faInfoCircle} width={12} />
-          </label>
         </span>
       </div>
       <Divider>

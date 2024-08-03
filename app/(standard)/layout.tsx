@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import "../../styles/globals.css";
 
 import React, { PropsWithChildren } from "react";
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 const RootLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   return (
     <html lang="en">
-      <body className={`${openSans.className}`}>
+      <body className={`${openSans.className} bg-background`}>
         <div className="flex items-center h-24 sticky top-0 sm:static bg-background text-primary border-b border-0 border-secondary">
           <div className="px-4 max-w-3xl md:mx-auto flex items-center w-full">
             <label className="sm:hidden peer group mr-5 cursor-pointer">

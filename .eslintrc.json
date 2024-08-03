@@ -11,6 +11,8 @@
   ],
   "rules": {
     "no-plusplus": "off",
+
+    "jsx-a11y/lavel-has-associated-control": ["off"],
     "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
     "react/function-component-definition": [
       2,
