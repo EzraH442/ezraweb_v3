@@ -11,7 +11,7 @@ interface ICardProps {
 
 const Card: React.FC<ICardProps> = ({ label, href }) => (
   <Column>
-    <div className="px-4 py-4">
+    <div className="px-4 py-4 hover:shadow-md hover:shadow-lime-300 bg-inherit">
       <Link href={href}>
         <p className="decoration-secondary hover:underline font-serif">
           {label}

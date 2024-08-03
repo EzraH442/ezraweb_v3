@@ -6,46 +6,39 @@ import Divider from "../components/Divider/Divider";
 import Card from "../components/homepage/Card";
 import Wasm from "../components/Wasm";
 
-
 export const metadata: Metadata = {
   title: "Ezra Huang",
   description: "Welcome to my website",
   icons: "/public/favicon.ico",
 };
-const Home: NextPage<{}> = () => {
+
+const Home: NextPage = () => {
   return (
     <>
       <div className="border-secondary border-2 border-solid rounded-md">
-        <Image
-          src="/images/cloud.png"
-          alt="A terminal history word cloud"
-          className="w-full rounded-md"
-          priority={false}
-          width={1200}
-          height={1200}
-        />
+        <Link href="/images/cloud.png" target="_blank">
+          <Image
+            src="/images/cloud.png"
+            alt="A terminal history word cloud"
+            className="w-full rounded-md"
+            priority={false}
+            width={1200}
+            height={1200}
+          />
+        </Link>
       </div>
       <div>
-        <span className="flex items-center justify-center pt-2 font-serif text-sm">
-          <p>{"Terminal word cloud, June 2023 - June 2024.  "}</p>
-          <Link
-            className="hover:underline hover:cursor-pointer text-accent"
-            href="/images/cloud.png"
-          >
-            Large
-          </Link>
-        </span>
+        <p className="flex items-center justify-center pt-2 font-serif text-sm">
+          Terminal word cloud, June 2023 - June 2024. Click on image for full
+          size.
+        </p>
       </div>
-      <div className="flex flex-col items-center pt-9">
-        <Divider>
-          <h2
-            className="font-raleway text-2xl font-thin text-accent"
-            id="about"
-          >
-            About
-          </h2>
-        </Divider>
-        <pre className="bg-inherit">{`
+      <Divider>
+        <h2 className="text-2xl font-thin text-accent" id="about">
+          About
+        </h2>
+      </Divider>
+      <pre className="bg-inherit overflow-x-scroll">{`
 EZRA HUANG
 
 NAME
@@ -54,59 +47,58 @@ NAME
 SYNOPSIS
     ezra [--calgarian] [--montrealer] 
          [--scrambler] [--backpacker] [--climber] [--skier] 
-         [--phan] [--deadhead] 
 
 DESCRIPTION
     ezra was born in Calgary, AB, and currently lives in Montreal working 
     towards an honors joint degree in math and computer science degree at McGill.  
     Outside, ezra enjoys scrambling, skiing, and backpacking, and inside, he enjoys 
-    listening to phish. He is a part of McGill Neurotech and the McGill Outdoors Club.
+    listening to phish. He is a member of McGill Neurotech and the current
+    hiking executive of the McGill Outdoors Club.
 
 SEE ALSO
-    leo zhang
-    random 121
-    lithium engineer
+    Jonathan Lamontagne Kratz (https://kratzj.vercel.app)
+    David Li (https://github.com/Random121)
 
 EZRA HUANG                              July 2024                           EZRA HUANG
           `}</pre>
-        <Divider>
-          <h2
-            className="font-raleway text-2xl font-thin text-accent"
-            id="projects"
-          >
-            Project Gallery
-          </h2>
-        </Divider>
-        <Divider>
-          <h3 className="font-lg">Current Projects</h3>
-        </Divider>
-        <div>
-          <Card
-            label="Mind-controlled card games, with McGill Neurotech."
-            href="https://github.com/mcgill-neurotech/2024"
-          />
-          <Card
-            label="Reinforcement Learning, with Jonathan Lamontagne Kratz."
-            href="https://github.com/epicgamer17/rl-research"
-          />
-        </div>
-        <Divider>
-          <h3 className="font-lg">Past Projects</h3>
-        </Divider>
+      <Divider>
+        <h2 className="text-2xl font-thin text-accent" id="projects">
+          Project Gallery
+        </h2>
+      </Divider>
+      <Divider>
+        <h3 className="font-lg">Current Projects</h3>
+      </Divider>
+      <div>
+        <Card
+          label="Mind-controlled card games, with McGill Neurotech (2024)."
+          href="https://github.com/mcgill-neurotech/2024"
+        />
+        <Card
+          label="Reinforcement Learning, with Jonathan Lamontagne Kratz (2024)."
+          href="https://github.com/epicgamer17/rl-research"
+        />
+      </div>
+
+      <Divider>
+        <h3 className="font-lg mb-2">Past Projects</h3>
+      </Divider>
+
+      <div>
         <div className="border-secondary border">
           <Image
             src="/images/files-server.png"
             alt="A terminal history word cloud"
             className="w-full"
             priority={false}
-            width={1200}
-            height={1200}
+            width={960}
+            height={638}
           />
         </div>
-        <span className="flex items-center justify-center pt-2 font-serif text-sm">
+        <span className="flex items-center justify-center font-serif text-sm mt-1 mb-2">
           <p>
             {
-              "File server, built on Backblaze B2 bucket storage with a Vue frontend and go backend. "
+              "File server, built on Backblaze B2 bucket storage with a Vue frontend and go backend (2023). "
             }
           </p>
           <Link
@@ -117,17 +109,30 @@ EZRA HUANG                              July 2024                           EZRA
             Link.
           </Link>
         </span>
-        <div className="flex flex-col items-center justify-center my-12">
+      </div>
+      <Divider />
+      <div>
+        <div className="flex flex-col items-center justify-center">
           <div
-            className="hidden tb:block"
             style={{ transform: "scale(0.7)", margin: "calc(-15%)" }}
+            className="hidden tb:block"
           >
             <Wasm />
           </div>
-          <span className="flex items-center justify-center pt-2 font-serif text-sm">
+
+          <div className="tb:hidden">
+            <Image
+              src="/images/tetris.png"
+              width={601}
+              height={601}
+              alt="3d tetris game"
+              className="tb:hidden"
+            />
+          </div>
+          <span className="flex items-center justify-center font-serif text-sm space-x-2">
             <p>
               {
-                "3-dimensional rendering from scratch with SDL2. Compiled with WebAssembly "
+                "3D tetris; 3-dimensional rendering coded from scratch with SDL2. Compiled with WebAssembly (2022). "
               }
             </p>
             <Link
@@ -135,10 +140,20 @@ EZRA HUANG                              July 2024                           EZRA
               href="https://github.com/EzraH442/3d-space"
               target="_blank"
             >
-              Source Code.
+              {"Source Code. "}
+            </Link>
+            <Link
+              className="hover:underline hover:cursor-pointer text-cyan-200 "
+              href="/help"
+              target="_blank"
+            >
+              (Help/Controls).
             </Link>
           </span>
         </div>
+      </div>
+      <Divider />
+      <div>
         <div className="border-secondary border">
           <Image
             src="/images/xerris.png"
@@ -149,8 +164,8 @@ EZRA HUANG                              July 2024                           EZRA
             height={1200}
           />
         </div>
-        <span className="flex items-center justify-center pt-2 font-serif text-sm">
-          <p>{"The project I worked on during my internship in 2022.  "}</p>
+        <span className="flex items-center justify-center mt-2 font-serif text-sm ">
+          <p>{"Xerris internship Project (2022).  "}</p>
           <Link
             className="hover:underline hover:cursor-pointer text-accent"
             href="https://www.linkedin.com/in/wdave40/"
@@ -159,34 +174,13 @@ EZRA HUANG                              July 2024                           EZRA
             {"Reference. "}
           </Link>
         </span>
-        <Divider>
-          <h2 className="font-raleway text-2xl font-thin text-accent">
-            Bookshelf
-          </h2>
-        </Divider>
-        <ul className="list-disc">
-          <li className="hover:cursor-pointer hover:underline">
-            <Link
-              href="http://incompleteideas.net/book/the-book.html"
-              target="_blank"
-            >
-              Reinforcement Learning: An Introduction (Barto and Sutton)
-            </Link>
-          </li>
-          <li className="hover:cursor-pointer hover:underline">
-            <Link
-              href="https://web.stanford.edu/~jurafsky/slp3"
-              target="_blank"
-            >
-              Speech and Language Processing (Jurafsky and Martin)
-            </Link>
-          </li>
-        </ul>
-        <Divider>
-          <h2 className="font-raleway text-2xl font-thin text-accent">Links</h2>
-        </Divider>
+      </div>
+      <Divider>
+        <h2 className="text-2xl font-thin text-accent">Links</h2>
+      </Divider>
 
-        <ul className="list-disc">
+      <div className="flex flex-col items-center">
+        <ul className="list-disc pl-5">
           <li className="hover:cursor-pointer hover:underline">
             <Link href="https://vpn.ezrahuang.com">VPN</Link>
           </li>
@@ -195,11 +189,6 @@ EZRA HUANG                              July 2024                           EZRA
           </li>
           <li className="hover:cursor-pointer hover:underline">
             <Link href="https://files.ezrahuang.com">File server</Link>
-          </li>
-          <li className="hover:cursor-pointer hover:underline">
-            <Link href="https://https://food.ezrahuang.com">
-              Dining hall food reviews
-            </Link>
           </li>
           <li className="hover:cursor-pointer hover:underline">
             <Link href="https://www.mcgilloutdoorsclub.ca/">
@@ -212,7 +201,7 @@ EZRA HUANG                              July 2024                           EZRA
             </Link>
           </li>
           <li className="hover:cursor-pointer hover:underline">
-            <Link href="https://annas-archive.org/">Anna's archive</Link>
+            <Link href="https://annas-archive.org/">{`Anna's archive`}</Link>
           </li>
           <li className="hover:cursor-pointer hover:underline">
             <Link href="https://libgen.rs/">Libgen</Link>

@@ -2,19 +2,19 @@ import Link from "next/link";
 import React from "react";
 
 interface INavLinkProps {
-  address: string;
-  text: string;
-  className?: string
+  href: string;
+  text: React.ReactNode;
+  className?: string;
 }
 
 const NavLink: React.FunctionComponent<INavLinkProps> = ({
-  address,
+  href: address,
   text,
-  className=''
+  className = "",
 }) => (
   <Link
     href={address}
-    className={`py-8 text-lg text-center text-white ${className}`}
+    className={`text-lg text-center text-white ${className}`}
   >
     {text}
   </Link>

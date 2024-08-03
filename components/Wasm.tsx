@@ -1,7 +1,7 @@
 const Wasm = () => {
   return (
     <>
-      {/* <canvas id="canvas" onContextMenu={(e) => e.preventDefault()} className="border border-secondary mx-auto"/> */}
+      <canvas id="canvas" className="border border-secondary mx-auto hidden tb:block"/>
       <script type="text/javascript" src="/static/loader.js" async/>
       <script type="text/javascript" src="/static/out.js" async/>
     </>
